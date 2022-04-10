@@ -1,46 +1,41 @@
-= Installation
+= インストール
 
 
 
-== Installing Nim
+== Nimのインストール
 
-Nim has ready made distributions for all three major operating systems and there are several options when it comes to installing Nim.
+Nimは3大オペレーティングシステム向けに完成された配布物が用意されており，Nimのインストールについてはいくつかの選択肢があります。
 
-You can follow https://nim-lang.org/install.html[the official installation procedure] to install the latest stable version, or you can use a tool called https://github.com/dom96/choosenim[choosenim] which enables you to easily switch between the stable and the latest development version if you're interested in the latest features and bugfixes.
+https://nim-lang.org/install.html[公式インストール手順]に従えば最新版をインストールできます。最新の機能やバグ修正が必要なら，link:https://github.com/dom96/choosenim[choosenim]と呼ばれるツールを使えば簡単に安定版と最新開発版を切り替えることが可能です。
 
-Whichever way you choose, just follow the installation procedure explained at each link and Nim should be installed.
-We will check that the installation went well in a coming chapter.
+どちらを選んでも，個々のリンク先で説明されているインストール手順に従うだけでNimはインストールされるはずです。後で，インストールがうまくいったか確認します。
 
-If you're using Linux, there is a high probability that your distribution has Nim in the package manager.
-If you are installing it that way, make sure it's the most recent version (see the website for what is the latest version), otherwise install via one of two methods mentioned above.
+Linuxを使っている場合は，使用しているディストリビューションのパッケージマネージャにNimが含まれている可能性が高いです。この方法でインストールしようとする場合は，最新版かどうか確認しましょう（何が最新版か確認するにはウェブサイト参照）。最新版でない場合は，上の二つのうちのどちらかの方法でインストールしましょう。
 
-In this tutorial we will use the stable version.
-Originally, this tutorial was written for Nim 0.19 (released in September 2018), and it should work for any newer version, including Nim 1.0.
+このチュートリアルでは安定版を使います。当初このチュートリアルはNim 0.19（2018年9月リリース）に対して執筆されましたが，Nim 1.0を含む新しい版でも動くはずです。
 
 
 
+== 追加のツールのインストール
 
-== Installing additional tools
+Nimコードはどんなエディタでも書くことは可能で，ターミナルからコンパイルと実行ができます。構文強調やコード補完を求めるなら，人気のあるコードエディタにはそのような機能を提供するプラグインがあります。
 
-You can write Nim code in any text editor, and then compile and run it from the terminal.
-If you want syntax highlighting and code completion there are plugins for popular code editors which provide these features.
+多くのNimユーザはlink:https://code.visualstudio.com/[VS Code]を好み，構文強調とコード補完にlink:https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode[Nim extension]，迅速なコンパイルと実行にlink:https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner[Code Runner extension]を使っています。
 
-Most of Nim users prefer the https://code.visualstudio.com/[VS Code] editor, with the https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode[Nim extension] which provides syntax highlighting and code completion, and the https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner[Code Runner extension] for quick compiling and running.
+著者はlink:https://neovim.io/[NeoVim]とlink:https://github.com/alaviss/nim.nvim[このプラグイン]（訳者はlink:https://github.com/zah/nim.vim[こちらのプラグイン]）を使って構文強調やコード補完のような機能を追加しています。
 
-The author personally uses https://neovim.io/[NeoVim] editor, with https://github.com/alaviss/nim.nvim[this plugin] which provides additional features like syntax highlighting and code completion.
-
-If you're using other code editors, see https://github.com/nim-lang/Nim/wiki/Editor-Support[the wiki] for available editor support.
+他のコードエディタで利用できるエディタサポートについては，link:https://github.com/nim-lang/Nim/wiki/Editor-Support[ウィキ]を参照してください。
 
 
 
 
-== Testing the installation
+== インストールの確認
 
-To check if the installation was successful, we will write a program which is traditionally used as an introductory example: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program[Hello World].
+インストールが成功したか確認するために，入門用の例として昔から使われているlink:https://en.wikipedia.org/wiki/%22Hello,_World!%22_program[Hello World]を書いてみます。
 
-Printing (as in: displaying on the screen; not on a paper with a printer) the phrase `Hello World!` in Nim is straightforward and it doesn't require any boilerplate code.
+Nimで``Hello World``という語句を印字（スクリーンへの表示でプリンタを使った紙への印刷ではない）簡単で余計なコードは不要です。
 
-In a new text file called e.g. `helloworld.nim` we need to write just one line of code:
+新しいテキストファイル，例えば``helloworld.nim``に1行のコードを書くだけです。
 
 [source]
 .helloworld.nim
@@ -48,41 +43,39 @@ In a new text file called e.g. `helloworld.nim` we need to write just one line o
 include::code/helloworld.nim[]
 ----
 
-NOTE: The phrase you want to print must follow the `echo` command and must be enclosed in double-quotes (`"`).
+NOTE: 印字したい語句は``echo``コマンドの後に置いて二重引用符（``"``）囲む必要があります。
 
-First we need to compile our program, and then run it to see if it works as expected.
+最初にプログラムをコンパイルしてから，走らせて期待通りに動作するか確認します。
 
-Open your terminal in the same directory where your file is (on Linux you can get "Open Terminal here" if you right-click the directory in your file manager, on Windows you should use Shift + right-click to get the menu option for opening the command line).
+ファイルがあるターミナルを開いてください（Linux ではファイルマネージャで右クリックして "Open Terminal here"，ウィンドウズではシフト+ 右クリックでコマンドラインを開くメニューが出ます）。
 
-We compile our program by typing in the terminal:
+ターミナルで次のように打鍵してプログラムをコンパイルします。
 [source, terminal]
 ----
 nim c helloworld.nim
 ----
 
-After a successful compilation, we can run our program.
-On Linux we can run our program by typing `./helloworld` in the terminal, and on Windows we do it by typing `helloworld.exe`.
+コンパイルに成功した後でプログラムを実行ができます。Linuxではプログラムを実行するにはターミナルで``./helloworld``ウィンドウズでは``helloworld.exe``と打鍵します。
 
-There is also a possibility to both compile and run the program with just one command.
-We need to type:
+ただ一つのコマンドでコンパイルと実行をすることもできます。次のように打鍵してください。
 [source, terminal]
 ----
 nim c -r helloworld.nim
 ----
 
-NOTE: `c` is telling Nim to compile the file, and `-r` is telling it to run it immediately. +
-To see all compiler options, type `nim --help` in your terminal.
+NOTE: ``c``はNimにファイルをコンパルすることを命じ，``-r``は直ちに実行することを命令しています。 +
+全てのコンパイラオプションを参照するには，ターミナルで``nim --help``と打鍵してください。
 
-If you're using VSCode with the Code Runner extension mentioned before, you'll just have to press `Ctrl+Alt+N` and your file will be compiled and run.
+上述の VSCode と Code Runner 拡張機能，``Ctrl+Alt+N``を押すだけでファイルはコンパイル・実行されます。
 
-Whichever way you chose to run your program, after a brief moment in the output window (or in your terminal) you should see:
+プログラムの実行にどちらの方法を選択した場合でも，すぐに出力ウィンドウ（またはターミナル）に次のように表示されるはずです。
 [source, output]
 ----
 Hello World!
 ----
 
-Congratulations, you have successfully run your first Nim program!
+おめでとうございます。初めてのNimプログラムの実行に成功しました。
 
-Now you know how to print some stuff on the screen (using the `echo` command), compile your program (typing `nim c programName.nim` in your terminal), and run it (various possibilities).
+画面に何かを印字する方法（``echo``コマンドを利用）やプログラムのコンパイル（ターミナルで``nim c programName.nim``のように打鍵）し，それを実行する（複数の方法）を覚えました。
 
-We can now start to explore the basic elements which will help us to write simple Nim programs.
+これからNimの基本要素を探索を始めます。これらは簡単なNimプログラムを書くために役立ちます。

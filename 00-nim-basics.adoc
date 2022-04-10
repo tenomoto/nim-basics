@@ -15,38 +15,37 @@
 
 
 
-https://nim-lang.org/[Nim] is a relatively new programming language which allows users to write easy-to-read high-performance code.
-But if you are reading this Nim tutorial, the chances are that you already know about Nim.
+https://nim-lang.org/[Nim]は比較的新しいプログラミング言語で，読みやすく高性能なコードを書くことが可能です。このNimチュートリアルの読者は，おそらくNimについてご存知でしょう。
 
-The tutorial is available both https://narimiran.github.io/nim-basics/[online] and as a https://github.com/narimiran/nim-basics/raw/master/nim-basics.pdf[PDF].
+このチュートリアルの原文はlink:https://narimiran.github.io/nim-basics/[オンライン]とlink:https://github.com/narimiran/nim-basics/raw/master/nim-basics.pdf[PDF]で，
+//和訳は https://tenomoto.github.io/nim-basics/[オンライン] と https://github.com/tenomoto/nim-basics-ja/raw/master/nim-basics-ja.pdf[PDF] で提供されています。
 
-This is a work-in-progress: if you spot any errors and/or you have an idea how to make this tutorial better, please report it to the https://github.com/narimiran/nim-basics/issues[issue tracker].
-
-
+このチュートリアルは作成途中です。もし誤りを見つけたり，改善案があればlink:https://github.com/narimiran/nim-basics/issues[issue tracker]に報告してください。
 
 
-== Who is this for?
-
-* People with no or minimal previous programming experience
-* People with some programming experience in other programming languages
-* People who want to explore Nim for the first time, starting from scratch
 
 
-== Who is this _not_ for?
+== 対象とする読者
 
-* People with lots of programming experience: other, more advanced, tutorials might suit you better.
-  See https://nim-lang.org/docs/tut1.html[Official Tutorial] or https://nim-by-example.github.io/[Nim by Example].
-* People experienced in Nim (feel free to help make this tutorial better)
+* プログラミングの経験がないか，始めて日が浅い方
+* 他の言語でのプログラミング経験がある方
+* 初めてNimについて探求したいので，最初から始めたい方
 
 
-== How to use this tutorial?
+== 読者として対象ではない 方
 
-The aim of this tutorial is to give you the basics of programming and the Nim syntax so you can have an easier time following other tutorials and/or explore further by yourself.
+* 多くのプログラミング経験がある方は他のより進んだチュートリアルをお勧めします。
+  https://nim-lang.org/docs/tut1.html[公式チュートリアル]やlink:https://nim-by-example.github.io/[Nim by Example]参照。
+* Nimの経験がある方（このチュートリアルの改善にご助力いただければ幸いです。）
 
-Instead of just reading what is written, it would be the best if you try the stuff by yourself, modify the examples, think of some examples of your own, and be curious in general.
-The exercises at the end of some chapters should be non-negotiable -- don't skip them.
 
-If you need additional help understanding some parts of the tutorial or with the exercises, you can always ask for help on the https://forum.nim-lang.org/[Nim forum], the https://gitter.im/nim-lang/Nim[Nim Gitter channel], their https://discordapp.com/invite/ezDFDw2[Discord server], or Nim's IRC channel on freenode, #nim.
+== このチュートリアルの使い方
+
+このチュートリアルの目的はプログラミングとNimの文法の基礎を示すことにより，読者が他のチュートリアルを読み，独力で進むことができるようにすることです。
+
+書かれていることを単に読むだけでなく，自分で試してたり，例を改変したり，独自の例を考えてみたり好奇心を持てれば最善です。いくつかの章の終わりにある練習問題は，解けるように作ってありますで，飛ばさないでください。
+
+チュートリアルの一部や練習問題について理解するために，さらに助けが必要ならlink:https://forum.nim-lang.org/[Nim forum]やlink:https://gitter.im/nim-lang/Nim[Nim Gitter channel]，link:https://discordapp.com/invite/ezDFDw2[Discord server]，または Nim's IRC channel on freenode, #nim で質問してください。
 
 
 include::01-installation.adoc[]
@@ -78,4 +77,5 @@ include::10-conclusion.adoc[]
 
 {nbsp}
 
-The source files are available https://github.com/narimiran/nim-basics[on Github].
+原文のソースはlink:https://github.com/narimiran/nim-basics[Github],
+和訳のソースはlink:https://github.com/tenomoto/nim-basics_ja[Github]にあります。

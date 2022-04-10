@@ -6,7 +6,7 @@ index.html: $(sources) styles/style.css
 
 # create pdf version
 nim-basics.pdf: $(sources) styles/pdf-theme.yml
-	asciidoctor-pdf -o $@ -a rouge-style=github 00-nim-basics.adoc
+	asciidoctor-pdf -o $@ -a scripts=cjk -a pdf-themesdir=styles -a pdf-theme=pdf -a rouge-style=github 00-nim-basics.adoc
 
 # create epub version
 nim-basics.epub: $(sources) styles/epub.css
