@@ -17,8 +17,7 @@
 
 https://nim-lang.org/[Nim]は比較的新しいプログラミング言語で，読みやすく高性能なコードを書くことが可能です。このNimチュートリアルの読者は，おそらくNimについてご存知でしょう。
 
-このチュートリアルの原文はlink:https://narimiran.github.io/nim-basics/[オンライン]とlink:https://github.com/narimiran/nim-basics/raw/master/nim-basics.pdf[PDF]で，
-//和訳は https://tenomoto.github.io/nim-basics/[オンライン] と https://github.com/tenomoto/nim-basics-ja/raw/master/nim-basics-ja.pdf[PDF] で提供されています。
+このチュートリアルの原文はlink:https://narimiran.github.io/nim-basics/[オンライン]とlink:https://github.com/narimiran/nim-basics/raw/master/nim-basics.pdf[PDF]で，和訳はlink:https://www.dpac.dpri.kyoto-u.ac.jp/enomoto/nim-basics/[オンライン]とlink:https://www.dpac.dpri.kyoto-u.ac.jp/enomoto/nim-basics/nim-basics.pdf[PDF]で提供されています。
 
 このチュートリアルは作成途中です。もし誤りを見つけたり，改善案があればlink:https://github.com/narimiran/nim-basics/issues[issue tracker]に報告してください。
 

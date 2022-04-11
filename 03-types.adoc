@@ -2,28 +2,24 @@
 
 
 
-== Integers
+== 整数
 
-As seen in the previous chapter, integers are numbers which are written without a fractional component and without a decimal point.
+前章で述べたように，整数は小数部や小数点がない数値です。
 
-For example: `32`, `-174`, `0`, `10_000_000` are all integers.
-Notice that we can use `_` as a thousands separator, to make larger numbers more readable (it is easier to see that we're talking about 10 million when it's written as 10_000_000 rather than as 10000000).
+例えば``32``, `-174`, `0`, ``10_000_000``は全て整数です。3桁毎の区切りに``_``を用いて大きな数値を見やすくしていることに注目してください（1千万を10_000_000と書いた方が10000000と書くより分かりやすくなります)。
 
-The usual mathematical operators -- addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) -- work as one would expect.
-The first three operations always produce integers, while dividing two integers always gives a floating point number (a number with a decimal point) as a result, even if two numbers can be divided without a remainder.
+通常の数学演算子，加算（``+``），減算（``-``），乗算（``*``），そして除算（``/``）は期待した通りに動作します。最初の三つの演算子は整数を生成しますが，二つの整数の除算は，余りがない場合でも常に浮動小数点数（小数点のある数値）が結果として与えられます。
 
-Integer division (division where the fractional part is discarded) can be achieved with the `div` operator.
-An operator `mod` is used if one is interested in the remainder (modulus) of an integer division.
-The result of these two operations is always an integer.
+整数の除算（小数部が無視される除算）には``div``演算子を使います。演算子``mod``（modulus，法）は整数の除算の余りを得たいときに用います。これらの演算の結果は常に整数です。
 
 [source]
 .integers.nim
 ----
 include::{source-dir}/integers.nim[]
 ----
-<1> The `echo` command will print to the screen everything that follows it separated by commas. In this case, it first prints the string ``a + b = ``, and then after it, in the same row, it prints the result of the expression `a + b`.
+<1> ``echo``コマンドはそれに続くコンマで区切られたもの全てを画面に印字します。この場合，まず文字``a + b = ``を印字し，続いて同じ行に式``a + b``の結果を印字します。
 
-We can compile and run the above code, and the output should be:
+コードをコンパイルして実行すると出力は次のようになるはずです。
 [source, output]
 ----
 a + b = 15
@@ -37,16 +33,13 @@ a mod b = 3
 
 
 
-== Floats
+== 浮動小数点数
 
-Floating-point numbers, or floats for short, are an https://en.wikipedia.org/wiki/Floating-point_arithmetic[approximate representation] of real numbers.
+浮動小数点数（float）実数のlink:https://en.wikipedia.org/wiki/Floating-point_arithmetic[近似表現]です。
 
-For example: `2.73`, `-3.14`, `5.0`, `4e7` are floats.
-Notice that we can use scientific notation for large floats, where the number after the `e` is the exponent.
-In this example, `4e7` is a notation representing `4 * 10^7`.
+例えば``2.73``, `-3.14`, `5.0`, ``4e7``は浮動小数点数です。大きな浮動小数点数には科学的表記を用いることに注目してください。``e``の後の数値は指数です。この例では，``4e7``は``4 * 10^7``を表します。
 
-We can also use the four basic mathematical operations between two floats.
-Operators `div` and `mod` are not defined for floats.
+二つの浮動小数点数に対して，四つの基本数学演算子を用いることができます。演算子``div``と``mod``は浮動小数点数に対しては定義されていません。
 
 [source]
 .floats.nim
@@ -61,9 +54,9 @@ c - d = 4.5
 c * d = 15.1875
 c / d = 3.0  <1>
 ----
-<1> Notice that in the addition and division examples, even though we get a number without a decimal part, the result is still of the floating type.
+<1> 加算と除算の例では，小数部がない数値が得られますが，結果は浮動小数点型であることに注意してください。
 
-The precedence of mathematical operations is as one would expect: multiplication and division have higher priority than addition and subtraction.
+数学演算の優先順位は期待通りです。乗算と除算は加算や減算よりも優先されます。
 
 [source]
 ----
@@ -80,20 +73,19 @@ echo 24 - 8 / 4
 
 
 
-=== Converting floats and integers
+=== 浮動小数点数と整数の変換
 
-Mathematical operations between variables of different numerical types are not possible in Nim, and they will produce an error:
+Nimでは異なる数値型の変数間の数学演算が許されておらず，エラーが発生します。
 [source]
 ----
 let
   e = 5
   f = 23.456
 
-echo e + f   # error
+echo e + f   # エラー
 ----
 
-The values of variables need to be converted to the same type.
-Conversion is straight-forward: to convert to an integer, we use the `int` function, and to convert to a float the `float` function is used.
+変数の値は同じ型に変換する必要があります。変換は簡単で整数への変換には``int``関数，浮動小数点数への変換には``float``関数を使います。
 [source]
 ----
 let
@@ -106,10 +98,10 @@ echo int(f)        <2>
 echo float(e) + f  <3>
 echo e + int(f)    <4>
 ----
-<1> Printing a `float` version of an integer `e`. (`e` remains of integer type)
-<2> Printing an `int` version of a float `f`.
-<3> Both operands are floats and can be added.
-<4> Both operands are integers and can be added.
+<1> ``float``に変換した整数``e``を印字する（``e``は整数のまま）。
+<2> ``int``に変換した浮動小数点数``f``を印字する。
+<3> 被演算子は共に浮動小数点数で加算可能。
+<4> 被演算子は共に整数で加算可能。
 
 
 [source, output]
@@ -120,78 +112,74 @@ echo e + int(f)    <4>
 28
 ----
 
-NOTE: When using the `int` function to convert a float to an integer no rounding will be performed.
-The number simply drops any decimals. +
-To perform rounding we must call another function, but for that we must know a bit more about how to use Nim.
+NOTE: ``int``関数を使って浮動小数点数を整数に変換するときに四捨五入は行われません。単に数値から小数部が落ちるだけです。 +
+四捨五入をするには別の関数を持ちなければなりませんが，それにはNimの使い方をもっと勉強する必要があります。
 
 
 
 
-== Characters
+== 文字
 
-The `char` type is used for representing a single https://en.wikipedia.org/wiki/ASCII[ASCII] character.
+``char``型は単一のlink:https://en.wikipedia.org/wiki/ASCII[ASCII]文字を表すために用いられます。
 
-Chars are written between two single ticks (`'`).
-Chars can be letters, symbols, or single digits.
-Multiple digits or multiple letters produce an error.
+文字は二つの一重引用符（``'``）の間に書きます。文字はアルファベット，記号または数字です。複数の数字や文字はエラーになります。
 [source]
 ----
 let
   h = 'z'
   i = '+'
   j = '2'
-  k = '35' # error
-  l = 'xy' # error
+  k = '35' # エラー
+  l = 'xy' # エラー
 ----
 
 
 
 
-== Strings
+== 文字列
 
-Strings can be described as a series of characters.
-Their content is written between two double quotes (`"`).
+文字列は文字が並んだものです。文字列の中身は二つの二重引用符 （``"``）の間に書きます。
 
-We might think of strings as words, but they can contain more than one word, some symbols, or digits.
+文字列というと単語を思い浮かべますが，複数の単語や記号，数字を含むことができます。
 
 [source]
 .strings.nim
 ----
 include::{source-dir}/strings.nim[]
 ----
-<1> An empty string.
-<2> This is not a number (int). It is inside double quotes, making it a string.
-<3> Even though this is only one character, it is not a char because it is enclosed inside of double quotes.
+<1> 空の文字列。
+<2> これは数値（int）ではありません。二重引用符で囲まれているので，文字列になります。
+<3> これは一つの文字ですが，二重引用符に囲まれているのでcharではありません。
 
 
 
 
 
-=== Special characters
+=== 特殊文字
 
-If we try to print the following string:
+次の文字列を印字すると
 [source]
 ----
 echo "some\nim\tips"
 ----
-the result might surprise us:
+意外な結果になります。
 [source, output]
 ----
 some
 im	ips
 ----
 
-This is because there are several characters which have a special meaning.
-They are used by prepending the escape character `\` to them.
+このようになったのは，いくつかの文字には特別の意味があるからです。これらはエスケープ``\``を前につけて用います。
 
-* `\n` is a newline character
-* `\t` is a tab character
-* `\\` is a backslash (since one `\` is used as the escape character)
+* ``\n``は改行です。
+* ``\t``はタブです。
+* ``\\``はバックスラッシュです（``\``はエスケープとして用いるため）。
 
-If we wanted to print the above example as it was written, we have two possibilities:
+上の例を文字通り印字するには，二つの方法があります。
 
-* Use `\\` instead of `\` to print backslashes, or
-* Use raw strings which have syntax `r"..."` (putting a letter `r` immediately before the first quote), in which there are no escape characters and no special meanings: everything is printed as it is.
+* ``\\``を``\``の代わりに使うか，
+* 未加工（raw）文字列を使います。文法は``r"..."``で （文字``r``を最初の引用符の前に置きます。）
+）エスケープ文字が存在せず特別な意味もなく，全てがそのまま印字されます。
 
 [source]
 ----
@@ -205,27 +193,25 @@ some\nim\tips
 some\nim\tips
 ----
 
-There are more special characters than the ones listed above, and they are all found in the https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals[Nim manual].
+上に示したもの以外にも特殊文字があり，link:https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals[Nim manual]に示されています。
 
 
 
 
 
-=== String concatenation
+=== 文字列の結合
 
-Strings in Nim are mutable, meaning their content can change.
-With the `add` function we can add (append) either another string or a char to an existing string.
-If we don't want to change the original string, we can also concatenate (join together) strings with the `&` operator, this returns a new string.
+Nimの文字列は書き換え可能で，中身は変わり得ます。``add``関数で既存の文字列に別の文字列や文字を加える（付け足す）ことができます。元の文字列を変更したくないときは，文字列を``&``演算子で結合する（つなげる）と新しい文字列が返されます。
 
 [source]
 .stringConcat.nim
 ----
 include::{source-dir}/stringConcat.nim[]
 ----
-<1> If we plan to modify strings, they should be declared as `var`.
-<2> Adding another string modifies the existing string `p` in-place, changing its value.
-<3> We can also add a `char` to a string.
-<4> Concatenating two strings produces a new string, without modifying the original strings.
+<1> 文字列を変更する場合は``var``として宣言します。
+<2> 既存の文字列``p``に別の文字列を加えると，その文字列の値が変更されます。
+<3> 文字列に``char``を加えることもできます。
+<4> 二つの文字列を連結すると，元の文字列を変更せずに新しい文字列ができます。
 
 [source, output]
 ----
@@ -241,23 +227,22 @@ q is still: xyz
 
 
 
-== Boolean
+== 真偽
 
-A boolean (or just `bool`) data type can only have two values: `true` or `false`.
-Booleans are usually used for control flow (see <<Control flow, next chapter>>), and they are often a result of relational operators.
+真偽（またはブール，``bool``）データ型は二つの値``true``か``false``のどちらかです。ブール型は通常制御の流れ（<<_制御の流れ, 次章>>参照）に用いられ，通常関係演算子の結果です。
 
-The usual naming convention for boolean variables is to write them as a simple yes/no (true/false) questions, e.g. `isEmpty`, `isFinished`, `isMoving`, etc.
+ブール変数に通常用いられる名前の付け方は，はい/いいえ（真/偽）の質問，例えば
+``isEmpty``, ``isFinished``, ``isMoving``として表すというものです。
 
 
 
-=== Relational operators
+=== 関係演算子
 
-Relational operators test the relation between two entities, which must be comparable.
+関係演算子は，比較可能な二つの事柄の関係を試すものです。
 
-To compare if two values are the same, `==` (two equal signs) is used.
-Do not confuse this with `=`, which is used for assignment as we saw earlier.
+二つの値はが等値かどうか比較するには``==``（二つの等号）が用いられます。これを以前に示した代入に用いられる``=``と混同しないようにしてください。
 
-Here are all the relational operators defined for integers:
+整数に対して定義されている全ての関係演算子を示します。
 
 [source]
 .relationalOperators.nim
@@ -276,17 +261,17 @@ g is smaller or equal to h: true
 ----
 
 
-We can also compare characters and strings:
+文字や文字列を比較することもできます。
 
 [source]
 .relationalOperators.nim
 ----
 include::{source-dir}/relationalOperators.nim[lines=13..30]
 ----
-<1> All uppercase letters come before lowercase letters.
-<2> String comparison works char-by-char. First three characters are the same, and character `b` is smaller than character `z`.
-<3> String length doesn't matter for comparison if their characters are not identical.
-<4> Shorter string is smaller than the longer one.
+<1> 全ての大文字は小文字より前。
+<2> 文字列の比較は文字毎に行われます。最初の三つの文字は同一で，文字``b``は文字``z``よりも小さい。
+<3> 文字が同一でなければ，文字列の長さは比較されません。
+<4> 短い文字列は長い文字列よりも小さい。
 
 [source, output]
 ----
@@ -300,14 +285,14 @@ true
 
 
 
-=== Logical operators
+=== 論理演算子
 
-Logical operators are used to test the truthiness of an expression consisting of one or more boolean values.
+論理演算子は一つまたはそれ以上の真偽値からなる式が真であるか試すために用いられます。
 
-* Logical `and` returns `true` only if both members are `true`
-* Logical `or` returns `true` if there is at least one member which is `true`
-* Logical `xor` returns `true` if one member is true, but the other is not
-* Logical `not` negates the truthiness of its member: changing `true` to `false`, and vice versa (it is the only logical operator that takes just one operand)
+* 論理``and``が``true``を返すのは，両方とも``true``の場合のみ。
+* 論理``or``が``true``を返すのは，少なくともどちらか一方が``true``のとき。
+* 論理``xor``が``true``となるのは一方が真で他方がそうではないとき。
+* 論理``not``は真偽を反転させます。つまり``true```を``false``にまたはその逆（一つの被演算子をとる唯一の論理演算子）
 
 [source]
 .logicalOperators.nim
@@ -334,31 +319,29 @@ not F: true
 ----
 
 
-Relational and logical operators can be combined together to form more complex expressions.
+関係演算子と論理演算子を組み合わせて，より複雑な式を作ることができます。
 
-For example: `(5 < 7) and (11 + 9 == 32 - 2*6)` will become `true and (20 == 20)`, which becomes `true and true`, and in the end this will give the final result of `true`.
-
-
-
-
-== Recap
-
-This was the longest chapter in this tutorial and we covered a lot of ground.
-Take your time to go trough each data type and experiment with what you can do with each of them.
-
-Types might seem like a restriction at first, but they allow the Nim compiler to both make your code faster, and make sure you're not doing something wrong by accident -- this is especially beneficial in large code bases.
-
-Now you know the basic data types and several operations on them, which should be enough to do some simple calculations in Nim.
-Test your knowledge by doing the following exercises.
+例えば，``(5 < 7) and (11 + 9 == 32 - 2*6)``は``true and (20 == 20)``となり，``true and true``なるので，最終結果は``true``となります。
 
 
 
 
-== Exercises
+== まとめ
 
-1. Create an immutable variable containing your age (in years). Print your age in days. (1 year = 365 days)
-2. Check if your age is divisible by 3. (Hint: use `mod`)
-3. Create an immutable variable containing your height in centimeters. Print your height in inches. (1 in = 2.54 cm)
-4. A pipe has a 3/8 inch diameter. Express the diameter in centimeters.
-5. Create an immutable variable containing your first name, and another one containing your last name. Make a variable `fullName` by concatenating the previous two variables. Don't forget to put a whitespace in-between. Print your full name.
-6. Alice earns $400 every 15 days. Bob earns $3.14 per hour and works 8 hours a day, 7 days a week. After 30 days, has Alice earned more than Bob? (Hint: use relational operators)
+この章はチュートリアルの中で最長でたくさんの範囲を扱いました。時間をとって各データ型を復習し，それぞれ何ができるか試してみてください。
+
+型は一見制約のように見えますが，Nimコンパイラがコードを速く，偶発的におかしな動作をしないように確かめることを可能にするものです。これは大きなコードベースで役に立ちます。
+
+基本型といくつかの演算を学んだので，Nimで簡単な計算ができます。知識を次の練習問題で試してみましょう。
+
+
+
+
+== 練習問題
+
+1. 書き換え不可の変数を作り，あなたの年齢（年）を格納してください。年齢を日数で印字してください（1年は365日とします）。
+2. あなたの年齢が3で割り切れるか試してください。（ヒント: ``mod``を使います。）
+3. 書き換え不可の変数を作り，あなたの身長をセンチメートルで格納してください。身長をインチで印字してください（1インチは2.54センチ）。
+4. 管の直径が3/8インチです。直径をセンチメートルで表してください。
+5. 書き換え不可の変数を二つ作り，あなたの姓と名を格納してください。変数``fullName``を二つの変数を連結して作ってください。姓と名の間には空白文字を入れてください。あなたのフルネームを印字してください。
+6. アリスは$400を15日間毎に稼ぎます。ボブは1時間あたり$3.14稼ぎ，1日に8時間，週7日働いています。30日後，アリスはボブよりも稼いでいるでしょうか（ヒント: 関係演算子を使います）。

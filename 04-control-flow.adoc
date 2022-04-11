@@ -1,4 +1,4 @@
-= Control flow
+= 制御の流れ
 
 
 
