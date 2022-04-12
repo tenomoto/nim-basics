@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <title>Nim basics</title>
 <link rel="stylesheet" href="./styles/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,20 +16,20 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_who_is_this_for">Who is this for?</a></li>
-<li><a href="#_who_is_this_not_for">Who is this <em>not</em> for?</a></li>
-<li><a href="#_how_to_use_this_tutorial">How to use this tutorial?</a></li>
-<li><a href="#_installation">Installation</a>
+<li><a href="#_対象とする読者">対象とする読者</a></li>
+<li><a href="#_読者として対象ではない_方">読者として対象ではない 方</a></li>
+<li><a href="#_このチュートリアルの使い方">このチュートリアルの使い方</a></li>
+<li><a href="#_インストール">インストール</a>
 <ul class="sectlevel1">
-<li><a href="#_installing_nim">Installing Nim</a></li>
-<li><a href="#_installing_additional_tools">Installing additional tools</a></li>
-<li><a href="#_testing_the_installation">Testing the installation</a></li>
+<li><a href="#_nimのインストール">Nimのインストール</a></li>
+<li><a href="#_追加のツールのインストール">追加のツールのインストール</a></li>
+<li><a href="#_インストールの確認">インストールの確認</a></li>
 </ul>
 </li>
-<li><a href="#_naming_values">Naming values</a>
+<li><a href="#_値の命名">値の命名</a>
 <ul class="sectlevel1">
-<li><a href="#_variable_declaration">Variable declaration</a></li>
-<li><a href="#_immutable_assignment">Immutable assignment</a>
+<li><a href="#_変数の宣言">変数の宣言</a></li>
+<li><a href="#_書き換え不可の代入">書き換え不可の代入</a>
 <ul class="sectlevel2">
 <li><a href="#_const">Const</a></li>
 <li><a href="#_let">Let</a></li>
@@ -37,32 +37,32 @@
 </li>
 </ul>
 </li>
-<li><a href="#_basic_data_types">Basic data types</a>
+<li><a href="#_基本データ型">基本データ型</a>
 <ul class="sectlevel1">
-<li><a href="#_integers">Integers</a></li>
-<li><a href="#_floats">Floats</a>
+<li><a href="#_整数">整数</a></li>
+<li><a href="#_浮動小数点数">浮動小数点数</a>
 <ul class="sectlevel2">
-<li><a href="#_converting_floats_and_integers">Converting floats and integers</a></li>
+<li><a href="#_浮動小数点数と整数の変換">浮動小数点数と整数の変換</a></li>
 </ul>
 </li>
-<li><a href="#_characters">Characters</a></li>
-<li><a href="#_strings">Strings</a>
+<li><a href="#_文字">文字</a></li>
+<li><a href="#_文字列">文字列</a>
 <ul class="sectlevel2">
-<li><a href="#_special_characters">Special characters</a></li>
-<li><a href="#_string_concatenation">String concatenation</a></li>
+<li><a href="#_特殊文字">特殊文字</a></li>
+<li><a href="#_文字列の結合">文字列の結合</a></li>
 </ul>
 </li>
-<li><a href="#_boolean">Boolean</a>
+<li><a href="#_真偽">真偽</a>
 <ul class="sectlevel2">
-<li><a href="#_relational_operators">Relational operators</a></li>
-<li><a href="#_logical_operators">Logical operators</a></li>
+<li><a href="#_関係演算子">関係演算子</a></li>
+<li><a href="#_論理演算子">論理演算子</a></li>
 </ul>
 </li>
-<li><a href="#_recap">Recap</a></li>
-<li><a href="#_exercises">Exercises</a></li>
+<li><a href="#_まとめ">まとめ</a></li>
+<li><a href="#_練習問題">練習問題</a></li>
 </ul>
 </li>
-<li><a href="#_control_flow">Control flow</a>
+<li><a href="#_制御の流れ">制御の流れ</a>
 <ul class="sectlevel1">
 <li><a href="#_if_statement">If statement</a>
 <ul class="sectlevel2">
@@ -78,7 +78,7 @@
 <li><a href="#_for_loop">For loop</a></li>
 <li><a href="#_while_loop">While loop</a></li>
 <li><a href="#_break_and_continue">Break and continue</a></li>
-<li><a href="#_exercises_2">Exercises</a></li>
+<li><a href="#_exercises">Exercises</a></li>
 </ul>
 </li>
 <li><a href="#_containers">Containers</a>
@@ -87,7 +87,7 @@
 <li><a href="#_sequences">Sequences</a></li>
 <li><a href="#_indexing_and_slicing">Indexing and slicing</a></li>
 <li><a href="#_tuples">Tuples</a></li>
-<li><a href="#_exercises_3">Exercises</a></li>
+<li><a href="#_exercises_2">Exercises</a></li>
 </ul>
 </li>
 <li><a href="#_procedures">Procedures</a>
@@ -96,7 +96,7 @@
 <li><a href="#_calling_the_procedures">Calling the procedures</a></li>
 <li><a href="#_result_variable">Result variable</a></li>
 <li><a href="#_forward_declaration">Forward declaration</a></li>
-<li><a href="#_exercises_4">Exercises</a></li>
+<li><a href="#_exercises_3">Exercises</a></li>
 </ul>
 </li>
 <li><a href="#_modules">Modules</a>
@@ -110,7 +110,7 @@
 <li><a href="#_reading_from_a_file">Reading from a file</a></li>
 <li><a href="#_reading_user_input">Reading user input</a></li>
 <li><a href="#_dealing_with_numbers">Dealing with numbers</a></li>
-<li><a href="#_exercises_5">Exercises</a></li>
+<li><a href="#_exercises_4">Exercises</a></li>
 </ul>
 </li>
 <li><a href="#_conclusion">Conclusion</a>
@@ -125,119 +125,113 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://nim-lang.org/">Nim</a> is a relatively new programming language which allows users to write easy-to-read high-performance code.
-But if you are reading this Nim tutorial, the chances are that you already know about Nim.</p>
+<p><a href="https://nim-lang.org/">Nim</a>は比較的新しいプログラミング言語で，読みやすく高性能なコードを書くことが可能です。このNimチュートリアルの読者は，おそらくNimについてご存知でしょう。</p>
 </div>
 <div class="paragraph">
-<p>The tutorial is available both <a href="https://narimiran.github.io/nim-basics/">online</a> and as a <a href="https://github.com/narimiran/nim-basics/raw/master/nim-basics.pdf">PDF</a>.</p>
+<p>このチュートリアルの原文は<a href="https://narimiran.github.io/nim-basics/">オンライン</a>と<a href="https://github.com/narimiran/nim-basics/raw/master/nim-basics.pdf">PDF</a>で，和訳は<a href="https://www.dpac.dpri.kyoto-u.ac.jp/enomoto/nim-basics/">オンライン</a>と<a href="https://www.dpac.dpri.kyoto-u.ac.jp/enomoto/nim-basics/nim-basics.pdf">PDF</a>で提供されています。</p>
 </div>
 <div class="paragraph">
-<p>This is a work-in-progress: if you spot any errors and/or you have an idea how to make this tutorial better, please report it to the <a href="https://github.com/narimiran/nim-basics/issues">issue tracker</a>.</p>
+<p>このチュートリアルは作成途中です。もし誤りを見つけたり，改善案があれば<a href="https://github.com/narimiran/nim-basics/issues">issue tracker</a>に報告してください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_who_is_this_for">Who is this for?</h2>
+<h2 id="_対象とする読者">対象とする読者</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>People with no or minimal previous programming experience</p>
+<p>プログラミングの経験がないか，始めて日が浅い方</p>
 </li>
 <li>
-<p>People with some programming experience in other programming languages</p>
+<p>他の言語でのプログラミング経験がある方</p>
 </li>
 <li>
-<p>People who want to explore Nim for the first time, starting from scratch</p>
+<p>初めてNimについて探求したいので，最初から始めたい方</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_who_is_this_not_for">Who is this <em>not</em> for?</h2>
+<h2 id="_読者として対象ではない_方">読者として対象ではない 方</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>People with lots of programming experience: other, more advanced, tutorials might suit you better.
-See <a href="https://nim-lang.org/docs/tut1.html">Official Tutorial</a> or <a href="https://nim-by-example.github.io/">Nim by Example</a>.</p>
+<p>多くのプログラミング経験がある方は他のより進んだチュートリアルをお勧めします。
+<a href="https://nim-lang.org/docs/tut1.html">公式チュートリアル</a>や<a href="https://nim-by-example.github.io/">Nim by Example</a>参照。</p>
 </li>
 <li>
-<p>People experienced in Nim (feel free to help make this tutorial better)</p>
+<p>Nimの経験がある方（このチュートリアルの改善にご助力いただければ幸いです。）</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_to_use_this_tutorial">How to use this tutorial?</h2>
+<h2 id="_このチュートリアルの使い方">このチュートリアルの使い方</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The aim of this tutorial is to give you the basics of programming and the Nim syntax so you can have an easier time following other tutorials and/or explore further by yourself.</p>
+<p>このチュートリアルの目的はプログラミングとNimの文法の基礎を示すことにより，読者が他のチュートリアルを読み，独力で進むことができるようにすることです。</p>
 </div>
 <div class="paragraph">
-<p>Instead of just reading what is written, it would be the best if you try the stuff by yourself, modify the examples, think of some examples of your own, and be curious in general.
-The exercises at the end of some chapters should be non-negotiable&#8201;&#8212;&#8201;don&#8217;t skip them.</p>
+<p>書かれていることを単に読むだけでなく，自分で試してたり，例を改変したり，独自の例を考えてみたり好奇心を持てれば最善です。いくつかの章の終わりにある練習問題は，解けるように作ってありますで，飛ばさないでください。</p>
 </div>
 <div class="paragraph">
-<p>If you need additional help understanding some parts of the tutorial or with the exercises, you can always ask for help on the <a href="https://forum.nim-lang.org/">Nim forum</a>, the <a href="https://gitter.im/nim-lang/Nim">Nim Gitter channel</a>, their <a href="https://discordapp.com/invite/ezDFDw2">Discord server</a>, or Nim&#8217;s IRC channel on freenode, #nim.</p>
+<p>チュートリアルの一部や練習問題について理解するために，さらに助けが必要なら<a href="https://forum.nim-lang.org/">Nim forum</a>や<a href="https://gitter.im/nim-lang/Nim">Nim Gitter channel</a>，<a href="https://discordapp.com/invite/ezDFDw2">Discord server</a>，または Nim&#8217;s IRC channel on freenode, #nim で質問してください。</p>
 </div>
 </div>
 </div>
-<h1 id="_installation" class="sect0">Installation</h1>
+<h1 id="_インストール" class="sect0">インストール</h1>
 <div class="sect1">
-<h2 id="_installing_nim">Installing Nim</h2>
+<h2 id="_nimのインストール">Nimのインストール</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nim has ready made distributions for all three major operating systems and there are several options when it comes to installing Nim.</p>
+<p>Nimは3大オペレーティングシステム向けに完成された配布物が用意されており，Nimのインストールについてはいくつかの選択肢があります。</p>
 </div>
 <div class="paragraph">
-<p>You can follow <a href="https://nim-lang.org/install.html">the official installation procedure</a> to install the latest stable version, or you can use a tool called <a href="https://github.com/dom96/choosenim">choosenim</a> which enables you to easily switch between the stable and the latest development version if you&#8217;re interested in the latest features and bugfixes.</p>
+<p><a href="https://nim-lang.org/install.html">公式インストール手順</a>に従えば最新版をインストールできます。最新の機能やバグ修正が必要なら，<a href="https://github.com/dom96/choosenim">choosenim</a>と呼ばれるツールを使えば簡単に安定版と最新開発版を切り替えることが可能です。</p>
 </div>
 <div class="paragraph">
-<p>Whichever way you choose, just follow the installation procedure explained at each link and Nim should be installed.
-We will check that the installation went well in a coming chapter.</p>
+<p>どちらを選んでも，個々のリンク先で説明されているインストール手順に従うだけでNimはインストールされるはずです。後で，インストールがうまくいったか確認します。</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re using Linux, there is a high probability that your distribution has Nim in the package manager.
-If you are installing it that way, make sure it&#8217;s the most recent version (see the website for what is the latest version), otherwise install via one of two methods mentioned above.</p>
+<p>Linuxを使っている場合は，使用しているディストリビューションのパッケージマネージャにNimが含まれている可能性が高いです。この方法でインストールしようとする場合は，最新版かどうか確認しましょう（何が最新版か確認するにはウェブサイト参照）。最新版でない場合は，上の二つのうちのどちらかの方法でインストールしましょう。</p>
 </div>
 <div class="paragraph">
-<p>In this tutorial we will use the stable version.
-Originally, this tutorial was written for Nim 0.19 (released in September 2018), and it should work for any newer version, including Nim 1.0.</p>
+<p>このチュートリアルでは安定版を使います。当初このチュートリアルはNim 0.19（2018年9月リリース）に対して執筆されましたが，Nim 1.0を含む新しい版でも動くはずです。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installing_additional_tools">Installing additional tools</h2>
+<h2 id="_追加のツールのインストール">追加のツールのインストール</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can write Nim code in any text editor, and then compile and run it from the terminal.
-If you want syntax highlighting and code completion there are plugins for popular code editors which provide these features.</p>
+<p>Nimコードはどんなエディタでも書くことは可能で，ターミナルからコンパイルと実行ができます。構文強調やコード補完を求めるなら，人気のあるコードエディタにはそのような機能を提供するプラグインがあります。</p>
 </div>
 <div class="paragraph">
-<p>Most of Nim users prefer the <a href="https://code.visualstudio.com/">VS Code</a> editor, with the <a href="https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode">Nim extension</a> which provides syntax highlighting and code completion, and the <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner extension</a> for quick compiling and running.</p>
+<p>多くのNimユーザは<a href="https://code.visualstudio.com/">VS Code</a>を好み，構文強調とコード補完に<a href="https://marketplace.visualstudio.com/items?itemName=nimsaem.nimvscode">Nim extension</a>，迅速なコンパイルと実行に<a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner extension</a>を使っています。</p>
 </div>
 <div class="paragraph">
-<p>The author personally uses <a href="https://neovim.io/">NeoVim</a> editor, with <a href="https://github.com/alaviss/nim.nvim">this plugin</a> which provides additional features like syntax highlighting and code completion.</p>
+<p>著者は<a href="https://neovim.io/">NeoVim</a>と<a href="https://github.com/alaviss/nim.nvim">このプラグイン</a>（訳者は<a href="https://github.com/zah/nim.vim">こちらのプラグイン</a>）を使って構文強調やコード補完のような機能を追加しています。</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re using other code editors, see <a href="https://github.com/nim-lang/Nim/wiki/Editor-Support">the wiki</a> for available editor support.</p>
+<p>他のコードエディタで利用できるエディタサポートについては，<a href="https://github.com/nim-lang/Nim/wiki/Editor-Support">ウィキ</a>を参照してください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_testing_the_installation">Testing the installation</h2>
+<h2 id="_インストールの確認">インストールの確認</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To check if the installation was successful, we will write a program which is traditionally used as an introductory example: <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello World</a>.</p>
+<p>インストールが成功したか確認するために，入門用の例として昔から使われている<a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello World</a>を書いてみます。</p>
 </div>
 <div class="paragraph">
-<p>Printing (as in: displaying on the screen; not on a paper with a printer) the phrase <code>Hello World!</code> in Nim is straightforward and it doesn&#8217;t require any boilerplate code.</p>
+<p>Nimで<code>Hello World</code>という語句を印字（スクリーンへの表示でプリンタを使った紙への印刷ではない）簡単で余計なコードは不要です。</p>
 </div>
 <div class="paragraph">
-<p>In a new text file called e.g. <code>helloworld.nim</code> we need to write just one line of code:</p>
+<p>新しいテキストファイル，例えば<code>helloworld.nim</code>に1行のコードを書くだけです。</p>
 </div>
 <div class="listingblock">
 <div class="title">helloworld.nim</div>
@@ -252,19 +246,19 @@ If you want syntax highlighting and code completion there are plugins for popula
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The phrase you want to print must follow the <code>echo</code> command and must be enclosed in double-quotes (<code>"</code>).
+印字したい語句は<code>echo</code>コマンドの後に置いて二重引用符（<code>"</code>）囲む必要があります。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>First we need to compile our program, and then run it to see if it works as expected.</p>
+<p>最初にプログラムをコンパイルしてから，走らせて期待通りに動作するか確認します。</p>
 </div>
 <div class="paragraph">
-<p>Open your terminal in the same directory where your file is (on Linux you can get "Open Terminal here" if you right-click the directory in your file manager, on Windows you should use Shift + right-click to get the menu option for opening the command line).</p>
+<p>ファイルがあるターミナルを開いてください（Linux ではファイルマネージャで右クリックして "Open Terminal here"，ウィンドウズではシフト+ 右クリックでコマンドラインを開くメニューが出ます）。</p>
 </div>
 <div class="paragraph">
-<p>We compile our program by typing in the terminal:</p>
+<p>ターミナルで次のように打鍵してプログラムをコンパイルします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -272,12 +266,10 @@ The phrase you want to print must follow the <code>echo</code> command and must 
 </div>
 </div>
 <div class="paragraph">
-<p>After a successful compilation, we can run our program.
-On Linux we can run our program by typing <code>./helloworld</code> in the terminal, and on Windows we do it by typing <code>helloworld.exe</code>.</p>
+<p>コンパイルに成功した後でプログラムを実行ができます。Linuxではプログラムを実行するにはターミナルで<code>./helloworld</code>ウィンドウズでは<code>helloworld.exe</code>と打鍵します。</p>
 </div>
 <div class="paragraph">
-<p>There is also a possibility to both compile and run the program with just one command.
-We need to type:</p>
+<p>ただ一つのコマンドでコンパイルと実行をすることもできます。次のように打鍵してください。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -291,17 +283,17 @@ We need to type:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>c</code> is telling Nim to compile the file, and <code>-r</code> is telling it to run it immediately.<br>
-To see all compiler options, type <code>nim --help</code> in your terminal.
+<code>c</code>はNimにファイルをコンパルすることを命じ，<code>-r</code>は直ちに実行することを命令しています。<br>
+全てのコンパイラオプションを参照するには，ターミナルで<code>nim --help</code>と打鍵してください。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re using VSCode with the Code Runner extension mentioned before, you&#8217;ll just have to press <code>Ctrl+Alt+N</code> and your file will be compiled and run.</p>
+<p>上述の VSCode と Code Runner 拡張機能，<code>Ctrl+Alt+N</code>を押すだけでファイルはコンパイル・実行されます。</p>
 </div>
 <div class="paragraph">
-<p>Whichever way you chose to run your program, after a brief moment in the output window (or in your terminal) you should see:</p>
+<p>プログラムの実行にどちらの方法を選択した場合でも，すぐに出力ウィンドウ（またはターミナル）に次のように表示されるはずです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -309,46 +301,45 @@ To see all compiler options, type <code>nim --help</code> in your terminal.
 </div>
 </div>
 <div class="paragraph">
-<p>Congratulations, you have successfully run your first Nim program!</p>
+<p>おめでとうございます。初めてのNimプログラムの実行に成功しました。</p>
 </div>
 <div class="paragraph">
-<p>Now you know how to print some stuff on the screen (using the <code>echo</code> command), compile your program (typing <code>nim c programName.nim</code> in your terminal), and run it (various possibilities).</p>
+<p>画面に何かを印字する方法（<code>echo</code>コマンドを利用）やプログラムのコンパイル（ターミナルで<code>nim c programName.nim</code>のように打鍵）し，それを実行する（複数の方法）を覚えました。</p>
 </div>
 <div class="paragraph">
-<p>We can now start to explore the basic elements which will help us to write simple Nim programs.</p>
+<p>これからNimの基本要素を探索を始めます。これらは簡単なNimプログラムを書くために役立ちます。</p>
 </div>
 </div>
 </div>
-<h1 id="_naming_values" class="sect0">Naming values</h1>
+<h1 id="_値の命名" class="sect0">値の命名</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>It is often helpful to give the values in our programs names to help us keep track of things.
-If we ask a user for his/her name, we want to store it for the later usage, without asking for it again and again every time we need to do some computation with it.</p>
+<p>プログラムの中の値に名前をつけると，分かりやすくなります。ユーザの名前を聞いて後で使うために保存しておけば，再度聞き返さずに利用することができます。</p>
 </div>
 <div class="paragraph">
-<p>In the example <code>pi = 3.14</code>, the name <code>pi</code> is connected to the value <code>3.14</code>.
-From our experience, we can tell that the type of a variable <code>pi</code> is a (decimal) number.</p>
+<p>例として<code>pi = 3.14</code>で名前<code>pi</code>は値<code>3.14</code>に結びついています。
+明らかに<code>pi</code>の型は（十進法の）数値です。</p>
 </div>
 <div class="paragraph">
-<p>Another example would be <code>firstName = Alice</code>, where <code>firstName</code> is the name of a variable with the value <code>Alice</code>.
-We would say that the type of this variable is a word.</p>
+<p>別の例として<code>firstName = Alice</code>では<code>firstName</code>は値<code>Alice</code>を持つ変数の名前です。
+この変数の型は単語ということができるでしょう。</p>
 </div>
 <div class="paragraph">
-<p>In programming languages this works similarly.
-These name assignments have their <em>name</em>, the <em>value</em>, and a <em>type</em>.</p>
+<p>代入は，多くのプログラム言語で同様に動作します。
+代入では <em>名前</em>, <em>値</em>, そして <em>型</em> があります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_variable_declaration">Variable declaration</h2>
+<h2 id="_変数の宣言">変数の宣言</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nim is a <a href="https://en.wikipedia.org/wiki/Type_system#STATIC">statically typed</a> programming language, meaning that the type of an assignment needs to be declared before using the value.</p>
+<p>Nimは<a href="https://en.wikipedia.org/wiki/Type_system#STATIC">静的型付け</a>プログラミング言語で，代入の型は値を使う前に宣言されていなければなりません。</p>
 </div>
 <div class="paragraph">
-<p>In Nim we also distinguish values that can change, or mutate, from those that can&#8217;t, but more on this later.
-We can declare a variable (a mutable assignment) using the <code>var</code> keyword, just by stating its name and type (the value can be added later) by using this syntax:</p>
+<p>Nimでは変更できる値を変更できないものと区別しなければなりませんが，後ほど詳しく説明します。
+変数を宣言（変更可能な代入）するには<code>var</code>キーワードを使って，次のような文法により名前と型を書きます（値は後で与えられます）。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -356,7 +347,7 @@ We can declare a variable (a mutable assignment) using the <code>var</code> keyw
 </div>
 </div>
 <div class="paragraph">
-<p>If we already know its value, we can declare a variable and give it a value immediately:</p>
+<p>値がわかっているときは，変数を宣言して直ちに値を与えることができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -370,18 +361,20 @@ We can declare a variable (a mutable assignment) using the <code>var</code> keyw
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Angular brackets(<code>&lt;&gt;</code>) are used to show something you can change.<br>
-So <code>&lt;name&gt;</code> is not literally the word <code>name</code> in angular brackets but rather any name.
+山括弧 (<code>&lt;&gt;</code>) は変更してよいものを示しています。<br>
+従って<code>&lt;name&gt;</code>は山括弧の中の文字通りの単語<code>name</code>ではなくどんな名前でも構いません。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Nim also has <a href="https://en.wikipedia.org/wiki/Type_inference">type inference</a> ability: the compiler can automatically detect the type of a name assignment from its value, without explicitly stating the type.
-We&#8217;ll look more into the various types in the <a href="#_basic_data_types">next chapter</a>.</p>
+<p>Nimは<a href="https://en.wikipedia.org/wiki/Type_inference">型推論</a>機能があり，明示的に型を指定しなくてもコンパイラが自動的に値から名前代入の型を検出できます。</p>
 </div>
 <div class="paragraph">
-<p>So we can assign a variable without an explicit type like this:</p>
+<p>様々な型については<a href="#_基本データ型">次章</a>で述べます。</p>
+</div>
+<div class="paragraph">
+<p>型推論を使うと，次のように明示的な型なしに変数の代入ができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -389,7 +382,7 @@ We&#8217;ll look more into the various types in the <a href="#_basic_data_types"
 </div>
 </div>
 <div class="paragraph">
-<p>An example of this in Nim looks like this:</p>
+<p>Nimにおける代入の例は次のようなものです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -401,32 +394,25 @@ We&#8217;ll look more into the various types in the <a href="#_basic_data_types"
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Variable <code>a</code> is of type <code>int</code> (integer) with no value explicitly set.</td>
+<td>変数<code>a</code>は<code>int</code>（整数）で値は明示的に定めていません。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Variable <code>b</code> has a value of <code>7</code>. Its type is automatically detected as an integer.</td>
+<td>変数<code>b</code>は値が<code>7</code>でその型は整数として自動的に検出されています。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>When assigning names it is important to choose names that mean something for your program.
-Simply naming them <code>a</code>, <code>b</code>, <code>c</code>, and so forth will quickly become confusing.
-It is not possible to use spaces in a name, as that would split it into two.
-So if the name you choose consists of more than one word the usual way is to write it in <code>camelCase</code> style (notice that the first letter in a name should be lowercase).</p>
+<p>代入では，プログラムにおいて意味のある名前を選ぶことが重要です。単に<code>a</code>，<code>b</code> ，<code>c</code>などとすると，すぐに混乱してきます。一つの単語よりも多くの語からなる名前を選ぶときは，通常<code>camelCase</code>スタイル（最初の文字は小文字であることに注意）で書かれます。</p>
 </div>
 <div class="paragraph">
-<p>Note however that Nim is both case- and underscore-insensitive meaning that <code>helloWorld</code> and <code>hello_world</code> would be the same name.
-The exception to this is the first character, which <em>is</em> case-sensitive.
-Names can also include both numbers and other UTF-8 characters, even emojis should you wish that, but keep in mind you and possibly others will have to type them.</p>
+<p>ただし，Nimは大文字と小文字とを区別せず，アンダスコアを無視することに注意が必要です。つまり，<code>helloWrold</code>と<code>hello_world</code>は同じです。例外として最初の文字は大文字と小文字とを区別します。変数の名前には数字やUTF-8文字を含めることができます。望むのなら絵文字も使えますが，他の人が打鍵することになる可能性に配慮する必要があります。</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Instead of typing <code>var</code> for each variable, multiple variables (not necessarily of the same type) can be declared in the same <code>var</code> block.
-In Nim, blocks are parts of code with the same indentation (same number of spaces before the first character), and the default indentation level is two spaces.
-You will see such blocks everywhere in a Nim program, not only for assigning names.</p>
+<p><code>var</code>をそれぞれの変数に対して打鍵する代わりに，複数の変数（必ずしも同一の型ではない）は同じ<code>var</code>ブロックで宣言することができます。Nimではブロックは，字下げ（最初の文字の前にある同数の空白文字）が同一であるコードの一部で，既定の字下げ幅は空白2文字です。このようなブロックはNimプログラムの随所に見られ，代入に限りません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -443,16 +429,15 @@ You will see such blocks everywhere in a Nim program, not only for assigning nam
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In Nim tabs are not allowed as indentation.<br>
-You can set up your code editor to convert pressing <code>Tab</code> to any number of spaces.<br>
-In VS Code, the default setting is to convert <code>Tab</code> to four spaces.
-This is easily overridden in settings (<code>Ctrl+,</code>) by setting <code>"editor.tabSize": 2</code>.
+Nimではタブは字下げとして認められていません。<br>
+コードエディタを設定して<code>Tab</code>を任意の数の空白文字に置き換えることができます。<br>
+VS Codeでは既定は<code>Tab</code>を4つの空白文字に置き換えます。変更するには，設定（<code>Ctrl+,</code>）で<code>"editor.tabSize": 2</code>とします。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>As previously mentioned variables are mutable, i.e. their value can change (multiple times), but their type must stay the same as declared.</p>
+<p>前に述べたように変数は書き換え可能，つまり変数の値は何度でも変えることができますが，型は宣言したときと同一でなければなりません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -460,80 +445,76 @@ This is easily overridden in settings (<code>Ctrl+,</code>) by setting <code>"ed
 
 <span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>              <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">19</span>
-<span class="n">f</span> <span class="o">=</span> <span class="s">"Hello"</span> <span class="c"># error </span><i class="conum" data-value="3"></i><b>(3)</b> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+<span class="n">f</span> <span class="o">=</span> <span class="s">"Hello"</span> <span class="c"># エラー </span><i class="conum" data-value="3"></i><b>(3)</b> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Variable <code>f</code> has an initial value of <code>7</code> and its type is inferred as <code>int</code>.</td>
+<td>変数<code>f</code>は初期値<code>7</code>でその型は推定により``int`となります。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The value of <code>f</code> is first changed to <code>-3</code>, and then to <code>19</code>. Both of these are integers, the same as the original value.</td>
+<td><code>f</code>の値はまず<code>-3</code>，次に<code>19</code>に変更されます。これらは両方とも整数で，元の型と同じです。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Trying to change the value of <code>f</code> to <code>"Hello"</code> produces an error because <code>Hello</code> is not a number, and this would change the type of <code>f</code> from an integer to a string.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td><code># error</code> is a comment. Comments in Nim code are written after a <code>#</code> character. Everything after it on the same line will be ignored.</td>
+<td><code>f</code>の値を<code>"Hello"</code>に変更しようとすると， エラーが発生します。<code>Hello</code>は数値ではなくので，<code>f</code>の型を整数から文字列にしようとしています。
+&lt;4&gt;<code># エラー</code>はコメントです。Nimコード中のコメントは文字<code>#</code>の後に書きます。これに続く全ての文字は行の終わりまで無視されます。</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_immutable_assignment">Immutable assignment</h2>
+<h2 id="_書き換え不可の代入">書き換え不可の代入</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Unlike variables declared with <code>var</code> keyword, two more types of assignment exist in Nim, whose value cannot change, one declared with the <code>const</code> keyword, and the other declared with the <code>let</code> keyword.</p>
+<p>キーワード<code>var</code>を使って宣言された変数とは異なり，Nimにはあと2種類の代入があります。これらの値は変えることができません。一つはキーワード<code>const</code>，もう一つはキーワード<code>let</code>を使って宣言されます。</p>
 </div>
 <div class="sect2">
 <h3 id="_const">Const</h3>
 <div class="paragraph">
-<p>The value of an immutable assignment declared with <code>const</code> keyword must be known at compile time (before the program is run).</p>
+<p>キーワード<code>const</code>で宣言された書き換え不可な代入に用いられる値は，コンパイル時（プログラム実行前）に既知なければなりません。</p>
 </div>
 <div class="paragraph">
-<p>For example, we can declare the acceleration of gravity as <code>const g = 9.81</code> or pi as <code>const pi = 3.14</code>, as we know their values in advance and these values will not change during the execution of our program.</p>
+<p>例えば，重力加速度を<code>const g = 9.81</code>あるいは円周率を<code>const pi = 3.14</code>として宣言することができます。これらの値は事前に分かっていてプログラムの実行の間不変です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="nim"><span class="k">const</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="mi">27</span>         <span class="c"># error </span><i class="conum" data-value="1"></i><b>(1)</b>
+<span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="mi">27</span>         <span class="c"># エラー </span><i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="k">var</span> <span class="n">h</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
-<span class="k">const</span> <span class="n">i</span> <span class="o">=</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">7</span> <span class="c"># error </span><i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+<span class="k">const</span> <span class="n">i</span> <span class="o">=</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">7</span> <span class="c"># エラー </span><i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The value of a constant cannot be changed.</td>
+<td>定数の値は変えられません。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Variable <code>h</code> is not evaluated at compile time (it is a variable and its value can change during the execution of a program), consequently the value of constant <code>i</code> can&#8217;t be known at compile time, and this will raise an error.</td>
+<td>変数<code>h</code>はコンパイル時に評価されません（これは変数でその値はプログラムの実行中にかわりえます。）， 従って定数<code>i</code>の値はコンパイル時には知り得ないので，エラーが発生します。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In some programming languages it is a common practice to have the names of constants written in <code>ALL_CAPS</code>.
-Constants in Nim are written just like any other variable.</p>
+<p>プログラミング言語によっては，定数の名前を``ALL_CAPS`のように全て大文字で書く習慣があります。Nimの定数は他の変数と同様に書きます。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_let">Let</h3>
 <div class="paragraph">
-<p>Immutable assignments declared with <code>let</code> don&#8217;t need to be known at compile time, their value can be set at any time during the execution of a program, but once it is set, their value cannot change.</p>
+<p><code>let</code>で宣言された書き換え不可の代入は，コンパイル時に既知である必要はなく，その値はプログラムの実行中いつでも設定できますが，ひとたび設定したら値を変えることはできません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="nim"><span class="k">let</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">27</span> <span class="c"># error </span><i class="conum" data-value="1"></i><b>(1)</b>
+<span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">27</span> <span class="c"># エラー </span><i class="conum" data-value="1"></i><b>(1)</b>
 
 <span class="k">var</span> <span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="k">let</span> <span class="n">l</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">7</span>   <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
@@ -543,43 +524,38 @@ Constants in Nim are written just like any other variable.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The value of an immutable cannot be changed.</td>
+<td>書き換え不可の値は変更できません。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>In contrast to <code>const</code> example above, this works.</td>
+<td><code>const</code>の例とは対照的に，これは動作します。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In practice, you will see/use <code>let</code> more frequently than <code>const</code>.</p>
+<p>実際には，<code>let</code>は<code>const</code>よりも多く使われます。</p>
 </div>
 <div class="paragraph">
-<p>While you could use <code>var</code> for everything, your default choice should be <code>let</code>.
-Use <code>var</code> only for the variables which will be modified.</p>
+<p><code>var</code>を何にでも使うことはできますが，<code>let</code>を基本とすべきです。<code>var</code>は変更することになる変数のみに使いましょう。</p>
 </div>
 </div>
 </div>
 </div>
-<h1 id="_basic_data_types" class="sect0">Basic data types</h1>
+<h1 id="_基本データ型" class="sect0">基本データ型</h1>
 <div class="sect1">
-<h2 id="_integers">Integers</h2>
+<h2 id="_整数">整数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As seen in the previous chapter, integers are numbers which are written without a fractional component and without a decimal point.</p>
+<p>前章で述べたように，整数は小数部や小数点がない数値です。</p>
 </div>
 <div class="paragraph">
-<p>For example: <code>32</code>, <code>-174</code>, <code>0</code>, <code>10_000_000</code> are all integers.
-Notice that we can use <code>_</code> as a thousands separator, to make larger numbers more readable (it is easier to see that we&#8217;re talking about 10 million when it&#8217;s written as 10_000_000 rather than as 10000000).</p>
+<p>例えば<code>32</code>, <code>-174</code>, <code>0</code>, <code>10_000_000</code>は全て整数です。3桁毎の区切りに<code>_</code>を用いて大きな数値を見やすくしていることに注目してください（1千万を10_000_000と書いた方が10000000と書くより分かりやすくなります)。</p>
 </div>
 <div class="paragraph">
-<p>The usual mathematical operators&#8201;&#8212;&#8201;addition (<code>+</code>), subtraction (<code>-</code>), multiplication (<code>*</code>), and division (<code>/</code>)&#8201;&#8212;&#8201;work as one would expect.
-The first three operations always produce integers, while dividing two integers always gives a floating point number (a number with a decimal point) as a result, even if two numbers can be divided without a remainder.</p>
+<p>通常の数学演算子，加算（<code>+</code>），減算（<code>-</code>），乗算（<code>*</code>），そして除算（<code>/</code>）は期待した通りに動作します。最初の三つの演算子は整数を生成しますが，二つの整数の除算は，余りがない場合でも常に浮動小数点数（小数点のある数値）が結果として与えられます。</p>
 </div>
 <div class="paragraph">
-<p>Integer division (division where the fractional part is discarded) can be achieved with the <code>div</code> operator.
-An operator <code>mod</code> is used if one is interested in the remainder (modulus) of an integer division.
-The result of these two operations is always an integer.</p>
+<p>整数の除算（小数部が無視される除算）には<code>div</code>演算子を使います。演算子<code>mod</code>（modulus，法）は整数の除算の余りを得たいときに用います。これらの演算の結果は常に整数です。</p>
 </div>
 <div class="listingblock">
 <div class="title">integers.nim</div>
@@ -600,12 +576,12 @@ The result of these two operations is always an integer.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>echo</code> command will print to the screen everything that follows it separated by commas. In this case, it first prints the string <code>a + b = </code>, and then after it, in the same row, it prints the result of the expression <code>a + b</code>.</td>
+<td><code>echo</code>コマンドはそれに続くコンマで区切られたもの全てを画面に印字します。この場合，まず文字<code>a + b = </code>を印字し，続いて同じ行に式<code>a + b</code>の結果を印字します。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>We can compile and run the above code, and the output should be:</p>
+<p>コードをコンパイルして実行すると出力は次のようになるはずです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -620,19 +596,16 @@ a mod b = 3</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_floats">Floats</h2>
+<h2 id="_浮動小数点数">浮動小数点数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Floating-point numbers, or floats for short, are an <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">approximate representation</a> of real numbers.</p>
+<p>浮動小数点数（float）実数の<a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">近似表現</a>です。</p>
 </div>
 <div class="paragraph">
-<p>For example: <code>2.73</code>, <code>-3.14</code>, <code>5.0</code>, <code>4e7</code> are floats.
-Notice that we can use scientific notation for large floats, where the number after the <code>e</code> is the exponent.
-In this example, <code>4e7</code> is a notation representing <code>4 * 10^7</code>.</p>
+<p>例えば<code>2.73</code>, <code>-3.14</code>, <code>5.0</code>, <code>4e7</code>は浮動小数点数です。大きな浮動小数点数には科学的表記を用いることに注目してください。<code>e</code>の後の数値は指数です。この例では，<code>4e7</code>は<code>4 * 10^7</code>を表します。</p>
 </div>
 <div class="paragraph">
-<p>We can also use the four basic mathematical operations between two floats.
-Operators <code>div</code> and <code>mod</code> are not defined for floats.</p>
+<p>二つの浮動小数点数に対して，四つの基本数学演算子を用いることができます。演算子<code>div</code>と<code>mod</code>は浮動小数点数に対しては定義されていません。</p>
 </div>
 <div class="listingblock">
 <div class="title">floats.nim</div>
@@ -659,12 +632,12 @@ c / d = 3.0  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice that in the addition and division examples, even though we get a number without a decimal part, the result is still of the floating type.</td>
+<td>加算と除算の例では，小数部がない数値が得られますが，結果は浮動小数点型であることに注意してください。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The precedence of mathematical operations is as one would expect: multiplication and division have higher priority than addition and subtraction.</p>
+<p>数学演算の優先順位は期待通りです。乗算と除算は加算や減算よりも優先されます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -679,9 +652,9 @@ c / d = 3.0  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_converting_floats_and_integers">Converting floats and integers</h3>
+<h3 id="_浮動小数点数と整数の変換">浮動小数点数と整数の変換</h3>
 <div class="paragraph">
-<p>Mathematical operations between variables of different numerical types are not possible in Nim, and they will produce an error:</p>
+<p>Nimでは異なる数値型の変数間の数学演算が許されておらず，エラーが発生します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -689,12 +662,11 @@ c / d = 3.0  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
   <span class="n">e</span> <span class="o">=</span> <span class="mi">5</span>
   <span class="n">f</span> <span class="o">=</span> <span class="mf">23.456</span>
 
-<span class="n">echo</span> <span class="n">e</span> <span class="o">+</span> <span class="n">f</span>   <span class="c"># error</span></code></pre>
+<span class="n">echo</span> <span class="n">e</span> <span class="o">+</span> <span class="n">f</span>   <span class="c"># エラー</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The values of variables need to be converted to the same type.
-Conversion is straight-forward: to convert to an integer, we use the <code>int</code> function, and to convert to a float the <code>float</code> function is used.</p>
+<p>変数の値は同じ型に変換する必要があります。変換は簡単で整数への変換には<code>int</code>関数，浮動小数点数への変換には<code>float</code>関数を使います。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -713,19 +685,19 @@ Conversion is straight-forward: to convert to an integer, we use the <code>int</
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Printing a <code>float</code> version of an integer <code>e</code>. (<code>e</code> remains of integer type)</td>
+<td><code>float</code>に変換した整数<code>e</code>を印字する（<code>e</code>は整数のまま）。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Printing an <code>int</code> version of a float <code>f</code>.</td>
+<td><code>int</code>に変換した浮動小数点数<code>f</code>を印字する。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Both operands are floats and can be added.</td>
+<td>被演算子は共に浮動小数点数で加算可能。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Both operands are integers and can be added.</td>
+<td>被演算子は共に整数で加算可能。</td>
 </tr>
 </table>
 </div>
@@ -744,9 +716,8 @@ Conversion is straight-forward: to convert to an integer, we use the <code>int</
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When using the <code>int</code> function to convert a float to an integer no rounding will be performed.
-The number simply drops any decimals.<br>
-To perform rounding we must call another function, but for that we must know a bit more about how to use Nim.
+<code>int</code>関数を使って浮動小数点数を整数に変換するときに四捨五入は行われません。単に数値から小数部が落ちるだけです。<br>
+四捨五入をするには別の関数を持ちなければなりませんが，それにはNimの使い方をもっと勉強する必要があります。
 </td>
 </tr>
 </table>
@@ -755,15 +726,13 @@ To perform rounding we must call another function, but for that we must know a b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_characters">Characters</h2>
+<h2 id="_文字">文字</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>char</code> type is used for representing a single <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> character.</p>
+<p><code>char</code>型は単一の<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>文字を表すために用いられます。</p>
 </div>
 <div class="paragraph">
-<p>Chars are written between two single ticks (<code>'</code>).
-Chars can be letters, symbols, or single digits.
-Multiple digits or multiple letters produce an error.</p>
+<p>文字は二つの一重引用符（<code>'</code>）の間に書きます。文字はアルファベット，記号または数字です。複数の数字や文字はエラーになります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -771,21 +740,20 @@ Multiple digits or multiple letters produce an error.</p>
   <span class="n">h</span> <span class="o">=</span> <span class="sc">'z'</span>
   <span class="n">i</span> <span class="o">=</span> <span class="sc">'+'</span>
   <span class="n">j</span> <span class="o">=</span> <span class="sc">'2'</span>
-  <span class="n">k</span> <span class="o">=</span> <span class="sc">'35'</span> <span class="c"># error</span>
-  <span class="n">l</span> <span class="o">=</span> <span class="sc">'xy'</span> <span class="c"># error</span></code></pre>
+  <span class="n">k</span> <span class="o">=</span> <span class="sc">'35'</span> <span class="c"># エラー</span>
+  <span class="n">l</span> <span class="o">=</span> <span class="sc">'xy'</span> <span class="c"># エラー</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_strings">Strings</h2>
+<h2 id="_文字列">文字列</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Strings can be described as a series of characters.
-Their content is written between two double quotes (<code>"</code>).</p>
+<p>文字列は文字が並んだものです。文字列の中身は二つの二重引用符 （<code>"</code>）の間に書きます。</p>
 </div>
 <div class="paragraph">
-<p>We might think of strings as words, but they can contain more than one word, some symbols, or digits.</p>
+<p>文字列というと単語を思い浮かべますが，複数の単語や記号，数字を含むことができます。</p>
 </div>
 <div class="listingblock">
 <div class="title">strings.nim</div>
@@ -802,22 +770,22 @@ Their content is written between two double quotes (<code>"</code>).</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>An empty string.</td>
+<td>空の文字列。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This is not a number (int). It is inside double quotes, making it a string.</td>
+<td>これは数値（int）ではありません。二重引用符で囲まれているので，文字列になります。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Even though this is only one character, it is not a char because it is enclosed inside of double quotes.</td>
+<td>これは一つの文字ですが，二重引用符に囲まれているのでcharではありません。</td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_special_characters">Special characters</h3>
+<h3 id="_特殊文字">特殊文字</h3>
 <div class="paragraph">
-<p>If we try to print the following string:</p>
+<p>次の文字列を印字すると</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -825,7 +793,7 @@ Their content is written between two double quotes (<code>"</code>).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>the result might surprise us:</p>
+<p>意外な結果になります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -834,32 +802,32 @@ im	ips</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This is because there are several characters which have a special meaning.
-They are used by prepending the escape character <code>\</code> to them.</p>
+<p>このようになったのは，いくつかの文字には特別の意味があるからです。これらはエスケープ<code>\</code>を前につけて用います。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>\n</code> is a newline character</p>
+<p><code>\n</code>は改行です。</p>
 </li>
 <li>
-<p><code>\t</code> is a tab character</p>
+<p><code>\t</code>はタブです。</p>
 </li>
 <li>
-<p><code>\\</code> is a backslash (since one <code>\</code> is used as the escape character)</p>
+<p><code>\\</code>はバックスラッシュです（<code>\</code>はエスケープとして用いるため）。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If we wanted to print the above example as it was written, we have two possibilities:</p>
+<p>上の例を文字通り印字するには，二つの方法があります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Use <code>\\</code> instead of <code>\</code> to print backslashes, or</p>
+<p><code>\\</code>を<code>\</code>の代わりに使うか，</p>
 </li>
 <li>
-<p>Use raw strings which have syntax <code>r"&#8230;&#8203;"</code> (putting a letter <code>r</code> immediately before the first quote), in which there are no escape characters and no special meanings: everything is printed as it is.</p>
+<p>未加工（raw）文字列を使います。文法は<code>r"&#8230;&#8203;"</code>で （文字<code>r</code>を最初の引用符の前に置きます。）
+）エスケープ文字が存在せず特別な意味もなく，全てがそのまま印字されます。</p>
 </li>
 </ul>
 </div>
@@ -876,15 +844,13 @@ some\nim\tips</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>There are more special characters than the ones listed above, and they are all found in the <a href="https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals">Nim manual</a>.</p>
+<p>上に示したもの以外にも特殊文字があり，<a href="https://nim-lang.org/docs/manual.html#lexical-analysis-string-literals">Nim manual</a>に示されています。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_string_concatenation">String concatenation</h3>
+<h3 id="_文字列の結合">文字列の結合</h3>
 <div class="paragraph">
-<p>Strings in Nim are mutable, meaning their content can change.
-With the <code>add</code> function we can add (append) either another string or a char to an existing string.
-If we don&#8217;t want to change the original string, we can also concatenate (join together) strings with the <code>&amp;</code> operator, this returns a new string.</p>
+<p>Nimの文字列は書き換え可能で，中身は変わり得ます。<code>add</code>関数で既存の文字列に別の文字列や文字を加える（付け足す）ことができます。元の文字列を変更したくないときは，文字列を<code>&amp;</code>演算子で結合する（つなげる）と新しい文字列が返されます。</p>
 </div>
 <div class="listingblock">
 <div class="title">stringConcat.nim</div>
@@ -910,19 +876,19 @@ If we don&#8217;t want to change the original string, we can also concatenate (j
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If we plan to modify strings, they should be declared as <code>var</code>.</td>
+<td>文字列を変更する場合は<code>var</code>として宣言します。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Adding another string modifies the existing string <code>p</code> in-place, changing its value.</td>
+<td>既存の文字列<code>p</code>に別の文字列を加えると，その文字列の値が変更されます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>We can also add a <code>char</code> to a string.</td>
+<td>文字列に<code>char</code>を加えることもできます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Concatenating two strings produces a new string, without modifying the original strings.</td>
+<td>二つの文字列を連結すると，元の文字列を変更せずに新しい文字列ができます。</td>
 </tr>
 </table>
 </div>
@@ -939,26 +905,25 @@ q is still: xyz</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_boolean">Boolean</h2>
+<h2 id="_真偽">真偽</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A boolean (or just <code>bool</code>) data type can only have two values: <code>true</code> or <code>false</code>.
-Booleans are usually used for control flow (see <a href="#_control_flow">next chapter</a>), and they are often a result of relational operators.</p>
+<p>真偽（またはブール，<code>bool</code>）データ型は二つの値<code>true</code>か<code>false</code>のどちらかです。ブール型は通常制御の流れ（<a href="#_制御の流れ">次章</a>参照）に用いられ，通常関係演算子の結果です。</p>
 </div>
 <div class="paragraph">
-<p>The usual naming convention for boolean variables is to write them as a simple yes/no (true/false) questions, e.g. <code>isEmpty</code>, <code>isFinished</code>, <code>isMoving</code>, etc.</p>
+<p>ブール変数に通常用いられる名前の付け方は，はい/いいえ（真/偽）の質問，例えば
+<code>isEmpty</code>, <code>isFinished</code>, <code>isMoving</code>として表すというものです。</p>
 </div>
 <div class="sect2">
-<h3 id="_relational_operators">Relational operators</h3>
+<h3 id="_関係演算子">関係演算子</h3>
 <div class="paragraph">
-<p>Relational operators test the relation between two entities, which must be comparable.</p>
+<p>関係演算子は，比較可能な二つの事柄の関係を試すものです。</p>
 </div>
 <div class="paragraph">
-<p>To compare if two values are the same, <code>==</code> (two equal signs) is used.
-Do not confuse this with <code>=</code>, which is used for assignment as we saw earlier.</p>
+<p>二つの値はが等値かどうか比較するには<code>==</code>（二つの等号）が用いられます。これを以前に示した代入に用いられる<code>=</code>と混同しないようにしてください。</p>
 </div>
 <div class="paragraph">
-<p>Here are all the relational operators defined for integers:</p>
+<p>整数に対して定義されている全ての関係演算子を示します。</p>
 </div>
 <div class="listingblock">
 <div class="title">relationalOperators.nim</div>
@@ -986,7 +951,7 @@ g is smaller or equal to h: true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We can also compare characters and strings:</p>
+<p>文字や文字列を比較することもできます。</p>
 </div>
 <div class="listingblock">
 <div class="title">relationalOperators.nim</div>
@@ -1014,19 +979,19 @@ g is smaller or equal to h: true</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>All uppercase letters come before lowercase letters.</td>
+<td>全ての大文字は小文字より前。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>String comparison works char-by-char. First three characters are the same, and character <code>b</code> is smaller than character <code>z</code>.</td>
+<td>文字列の比較は文字毎に行われます。最初の三つの文字は同一で，文字<code>b</code>は文字<code>z</code>よりも小さい。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>String length doesn&#8217;t matter for comparison if their characters are not identical.</td>
+<td>文字が同一でなければ，文字列の長さは比較されません。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Shorter string is smaller than the longer one.</td>
+<td>短い文字列は長い文字列よりも小さい。</td>
 </tr>
 </table>
 </div>
@@ -1041,23 +1006,23 @@ true</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_logical_operators">Logical operators</h3>
+<h3 id="_論理演算子">論理演算子</h3>
 <div class="paragraph">
-<p>Logical operators are used to test the truthiness of an expression consisting of one or more boolean values.</p>
+<p>論理演算子は一つまたはそれ以上の真偽値からなる式が真であるか試すために用いられます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Logical <code>and</code> returns <code>true</code> only if both members are <code>true</code></p>
+<p>論理<code>and</code>が<code>true</code>を返すのは，両方とも<code>true</code>の場合のみ。</p>
 </li>
 <li>
-<p>Logical <code>or</code> returns <code>true</code> if there is at least one member which is <code>true</code></p>
+<p>論理<code>or</code>が<code>true</code>を返すのは，少なくともどちらか一方が<code>true</code>のとき。</p>
 </li>
 <li>
-<p>Logical <code>xor</code> returns <code>true</code> if one member is true, but the other is not</p>
+<p>論理<code>xor</code>が<code>true</code>となるのは一方が真で他方がそうではないとき。</p>
 </li>
 <li>
-<p>Logical <code>not</code> negates the truthiness of its member: changing <code>true</code> to <code>false</code>, and vice versa (it is the only logical operator that takes just one operand)</p>
+<p>論理<code>not</code>は真偽を反転させます。つまり<code>true</code>`を<code>false</code>にまたはその逆（一つの被演算子をとる唯一の論理演算子）</p>
 </li>
 </ul>
 </div>
@@ -1099,58 +1064,56 @@ not F: true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Relational and logical operators can be combined together to form more complex expressions.</p>
+<p>関係演算子と論理演算子を組み合わせて，より複雑な式を作ることができます。</p>
 </div>
 <div class="paragraph">
-<p>For example: <code>(5 &lt; 7) and (11 + 9 == 32 - 2*6)</code> will become <code>true and (20 == 20)</code>, which becomes <code>true and true</code>, and in the end this will give the final result of <code>true</code>.</p>
+<p>例えば，<code>(5 &lt; 7) and (11 + 9 == 32 - 2*6)</code>は<code>true and (20 == 20)</code>となり，<code>true and true</code>なるので，最終結果は<code>true</code>となります。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_recap">Recap</h2>
+<h2 id="_まとめ">まとめ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This was the longest chapter in this tutorial and we covered a lot of ground.
-Take your time to go trough each data type and experiment with what you can do with each of them.</p>
+<p>この章はチュートリアルの中で最長でたくさんの範囲を扱いました。時間をとって各データ型を復習し，それぞれ何ができるか試してみてください。</p>
 </div>
 <div class="paragraph">
-<p>Types might seem like a restriction at first, but they allow the Nim compiler to both make your code faster, and make sure you&#8217;re not doing something wrong by accident&#8201;&#8212;&#8201;this is especially beneficial in large code bases.</p>
+<p>型は一見制約のように見えますが，Nimコンパイラがコードを速く，偶発的におかしな動作をしないように確かめることを可能にするものです。これは大きなコードベースで役に立ちます。</p>
 </div>
 <div class="paragraph">
-<p>Now you know the basic data types and several operations on them, which should be enough to do some simple calculations in Nim.
-Test your knowledge by doing the following exercises.</p>
+<p>基本型といくつかの演算を学んだので，Nimで簡単な計算ができます。知識を次の練習問題で試してみましょう。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises">Exercises</h2>
+<h2 id="_練習問題">練習問題</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an immutable variable containing your age (in years). Print your age in days. (1 year = 365 days)</p>
+<p>書き換え不可の変数を作り，あなたの年齢（年）を格納してください。年齢を日数で印字してください（1年は365日とします）。</p>
 </li>
 <li>
-<p>Check if your age is divisible by 3. (Hint: use <code>mod</code>)</p>
+<p>あなたの年齢が3で割り切れるか試してください。（ヒント: <code>mod</code>を使います。）</p>
 </li>
 <li>
-<p>Create an immutable variable containing your height in centimeters. Print your height in inches. (1 in = 2.54 cm)</p>
+<p>書き換え不可の変数を作り，あなたの身長をセンチメートルで格納してください。身長をインチで印字してください（1インチは2.54センチ）。</p>
 </li>
 <li>
-<p>A pipe has a 3/8 inch diameter. Express the diameter in centimeters.</p>
+<p>管の直径が3/8インチです。直径をセンチメートルで表してください。</p>
 </li>
 <li>
-<p>Create an immutable variable containing your first name, and another one containing your last name. Make a variable <code>fullName</code> by concatenating the previous two variables. Don&#8217;t forget to put a whitespace in-between. Print your full name.</p>
+<p>書き換え不可の変数を二つ作り，あなたの姓と名を格納してください。変数<code>fullName</code>を二つの変数を連結して作ってください。姓と名の間には空白文字を入れてください。あなたのフルネームを印字してください。</p>
 </li>
 <li>
-<p>Alice earns $400 every 15 days. Bob earns $3.14 per hour and works 8 hours a day, 7 days a week. After 30 days, has Alice earned more than Bob? (Hint: use relational operators)</p>
+<p>アリスは$400を15日間毎に稼ぎます。ボブは1時間あたり$3.14稼ぎ，1日に8時間，週7日働いています。30日後，アリスはボブよりも稼いでいるでしょうか（ヒント: 関係演算子を使います）。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<h1 id="_control_flow" class="sect0">Control flow</h1>
+<h1 id="_制御の流れ" class="sect0">制御の流れ</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
@@ -1769,7 +1732,7 @@ Notice how 3 and 6 are missing from the output of the following code:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_2">Exercises</h2>
+<h2 id="_exercises">Exercises</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -2195,7 +2158,7 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_3">Exercises</h2>
+<h2 id="_exercises_2">Exercises</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -2773,7 +2736,7 @@ The reason for this is that we have to declare procedures before we can call the
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_4">Exercises</h2>
+<h2 id="_exercises_3">Exercises</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -3303,7 +3266,7 @@ You are 84 years old.</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_5">Exercises</h2>
+<h2 id="_exercises_4">Exercises</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -3379,7 +3342,8 @@ Nim has a lot more to offer, and hopefully you will continue to explore its poss
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>The source files are available <a href="https://github.com/narimiran/nim-basics">on Github</a>.</p>
+<p>原文のソースは<a href="https://github.com/narimiran/nim-basics">Github</a>,
+和訳のソースは<a href="https://github.com/tenomoto/nim-basics_ja">Github</a>にあります。</p>
 </div>
 </div>
 </div>
