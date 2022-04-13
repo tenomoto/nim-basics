@@ -1,49 +1,43 @@
-= Loops
+= 繰り返し
 
 
 
-Loops are another control flow construct which allow us to run some parts of code multiple times.
+繰り返し（ループ）は，もう一つの流れの制御構造でコードの一部を複数回実行することを可能にするものです。
 
-In this chapter we will meet two kinds of loops:
+この章では二種類のループを学びます。
 
-* for-loop: run a known number of times
-* while-loop: run as long some condition is satisfied
+* forループ: 決まった回数の繰り返し
+* whileループ: 条件が満たされる間繰り返し
 
 
-== For loop
+== Forループ 
 
-Syntax of a for-loop is:
+forループの文法は
 [source]
 ----
 for <loopVariable> in <iterable>:
   <loop body>
 ----
 
-Traditionally, `i` is often used as a `loopVariable` name, but any other name can be used.
-That variable will be available only inside the loop.
-Once the loop has finished, the value of the variable is discarded.
+伝統的に``i``がループ変数``loopVariable``の名前として使われていますが，なんでも構いません。この変数はループの内側だけで使えます。ループが終わった後は，ループ変数は破棄されます。
 
-The `iterable` is any object we can iterate through.
-Of the types already mentioned, strings are iterable objects.
-(More iterable types will be introduced in the <<Containers, next chapter>>.)
+``iterable``は反復可能なオブジェクトです。これまでに述べた方のうち，文字列は反復可能オブジェクトです（いろいろな反復可能な型は<<_コンテナ, 次章>>に登場します）。
 
-All lines in the `loop body` are executed at every loop, which allows us to efficiently write repeating parts of code.
+``loop body``の全ての行は反復の度に実行されるため，コードの繰り返される部分を効率的に書くことができます。
 
 {nbsp}
 
-If we want to iterate through a range of (integer) numbers in Nim, the syntax for the `iterable` is `start .. finish` where `start` and `finish` are numbers.
-This will iterate through all the numbers between `start` and `finish`, including both `start` and `finish`.
-For the default range iterable, `start` needs to be smaller than `finish`.
+Nimで（整数型）数値の範囲にわたって反復したいときは，``iterable``の文法は ``start .. finish``で``start``と``finish``は数値です。このように書くと，``start``と``finish``の間の数値を``finish``を含めて反復します。既定の反復可能な範囲では，``start``は``finish``よりも小さくなくてはなりません。
 
-If we want to iterate _until_ a number (not including it), we can use `..<`:
+ある数値の手前まで（その数値を含まない）反復では``..<``を使います。
 
 [source]
 .for1.nim
 ----
 include::{source-dir}/for1.nim[]
 ----
-<1> Iterating through a range of numbers using `..` -- both ends are included in the range.
-<2> Iterating through the same range using `..<` -- it iterates until the higher end, not including it.
+<1> 反復を``..``を使って行う場合，範囲の始端・終端の両方が含まれます。
+<2> 同じ範囲の反復を``..<``を使って行うと，終端の手前までで終端は含まれません。
 
 [source, output]
 ----
@@ -60,15 +54,14 @@ include::{source-dir}/for1.nim[]
 ----
 
 
-
-If we want to iterate through a range of numbers with a step size different than one, `countup` is used. With `countup` we define the starting value, the stopping value (included in the range), and the step size.
+1でない刻み幅を用いて数値の範囲について反復する場合，``countup``が用いられます。``countup``には，開始値，終了値（範囲に含まれる）と刻み幅を指定します。
 
 [source]
 .for2.nim
 ----
 include::{source-dir}/for2.nim[lines=1..2]
 ----
-<1> Counting up from zero to 16, with a step size of 4. The end (16) is included in the range.
+<1> 0から16まで刻み幅4で小さい方から大きい方に数えます。終端（16）は範囲に含まれます。
 
 [source, output]
 ----
@@ -80,16 +73,15 @@ include::{source-dir}/for2.nim[lines=1..2]
 ----
 
 
-To iterate through a range of numbers where the `start` is larger than `finish`, a similar function called `countdown` is used.
-Even if we're counting down, the step size must be positive.
+``start``が``finish``より大きい数値の範囲にわたって反復するときは，``countdown``と呼ばれる類似の関数を使います。大きい方から小さい方に数えているにも関わらず，刻み幅は正です。
 
 [source]
 .for2.nim
 ----
 include::{source-dir}/for2.nim[lines=5..12]
 ----
-<1> To iterate from a higher to a lower number, we must use `countdown` (The `..` operator can only be used when the starting value is smaller than the end value).
-<2> Even when counting down, the step size must be a positive number.
+<1> 大きい数値から小さい数値に向かって反復するには``countdown``を使わなければなりません。（``..``演算子は開始する数値が終了する数値よりも小さい場合にのみ使えます。
+<2> 大きい方から小さい方に数えるにも関わらず，刻み幅は正なくてはなりません。
 
 [source, output]
 ----
@@ -106,7 +98,7 @@ include::{source-dir}/for2.nim[lines=5..12]
 ----
 
 
-Since string is an iterable, we can use a for-loop to iterate through each character of the string (this kind of iteration is sometimes called a _for-each_ loop).
+文字列は反復可能なので，forループを使って文字列に含まれる文字を一つづつ反復していくことができます（この手の反復は__for-each__ループとも呼ばれます）。
 
 [source]
 .for3.nim
@@ -127,8 +119,7 @@ t
 ----
 
 
-If we also need to have an iteration counter (starting from zero), we can achieve that by using `for <counterVariable>, <loopVariable> in <iterator>:` syntax.
-This is very practical if you want to iterate through one iterable, and simultaneously access another iterable at the same offset.
+反復カウンタ（0始まり）も必要な場合は，``for <counterVariable>, <loopVariable> in <iterator>:``という文法が使えます。これは，ある反復可能オブジェクトについて反復し，同時に別の反復可能オブジェクトの同じ位置の値を使うときに便利です。
 
 [source]
 .for3.nim
@@ -151,20 +142,19 @@ letter 7 is: t
 
 
 
-== While loop
+== Whileループ 
 
-While loops are similar to if statements, but they keep executing their block of code as long as the condition remains true.
-They are used when we don't know in advance how many times the loop will run.
+Whileループはif文に似ていますが，コードのブロックを条件が真の間実行し続けます。これはループが何回実行されるか事前に分からないときに使われます。
 
-We must make sure the loop will terminate at some point and not become an https://en.wikipedia.org/wiki/Infinite_loop[infinite loop].
+ループがある時点で必ず終了するようにして，link:https://en.wikipedia.org/wiki/Infinite_loop[無限ループ]にならないようにします。
 
 [source]
 .while.nim
 ----
 include::{source-dir}/while.nim[]
 ----
-<1> This condition will be checked every time before entering the new loop and executing the code inside of it.
-<2> `inc` is used to increment `a` by one. It is the same as writing `a = a + 1` or `a += 1`.
+<1> この条件は新しいループに入る度に検査され，内側のコードが実行されます。
+<2> ``inc``は``a``を一つ増やします。``a = a + 1``または``a += 1``と書くのと同じです。
 
 [source, output]
 ----
@@ -177,12 +167,11 @@ final value of a: 4
 
 
 
-== Break and continue
+== Breakとcontinue
 
-The `break` statement is used to prematurely exit from a loop, usually if some condition is met.
+``Break``文は通常ある条件が満たされた場合に先にループから出るために使います。
 
-In the next example, if there were no if statement with `break` in it, the loop would continue to run and print until `i` becomes 1000.
-With the `break` statement, when `i` becomes 3, we immediately exit the loop (before printing the value of `i`).
+次の例では，``break``文を伴うif文がなければ，``i``が1000になるまで印字が継続します。``break``分があると，``i``が3になると（値を印字する前に）直ちにループを出ます
 
 [source]
 .break.nim
@@ -198,8 +187,7 @@ include::{source-dir}/break.nim[]
 
 {nbsp}
 
-The `continue` statement starts the next iteration of a loop immediately, without executing the remaining lines of the current iteration.
-Notice how 3 and 6 are missing from the output of the following code:
+``continue``文は直ちにループの次の反復を実行し，現在の反復の残り行は実行されません。次のコードで3と6が出力にないことに注意してください。
 
 [source]
 .continue.nim
@@ -220,17 +208,17 @@ include::{source-dir}/continue.nim[]
 
 
 
-== Exercises
+== 練習問題
 
-1. https://en.wikipedia.org/wiki/Collatz_conjecture[Collatz conjecture] is a popular mathematical problem with simple rules. First pick a number. If it is odd, multiply it by three and add one; if it is even, divide it by two. Repeat this procedure until you arrive at one. E.g. 5 -> odd -> 3*5 + 1 = 16 -> even -> 16 / 2 = 8 -> even -> 4 -> 2 -> 1 -> end! +
-Pick an integer (as a mutable variable) and create a loop which will print every step of the Collatz conjecture. (Hint: use `div` for division)
+1. https://en.wikipedia.org/wiki/Collatz_conjecture[コラッツの問題]は有名な数学の問題で，ルールは単純です。まず数値を選びます。奇数なら3を加えて1を足します。もし偶数なら2で割ります。この手順を1になるまで続けます。例。5 -> 奇数 -> 3*5 + 1 = 16 -> 偶数 -> 16 / 2 = 8 -> 偶数 -> 4 -> 2 -> 1 -> end! +
+整数を（書き換え可能な変数として）選びコラッツの問題の各ステップを印字するプログラムを書いてください。（ヒント。``div``を割り算に使います。）
 
-2. Create an immutable variable containing your full name. Write a for-loop which will iterate through that string and print only the vowels (a, e, i, o, u). (Hint: use `case` statement with multiple values per branch)
+2. 書き換え不可の変数を作り，フルネームを格納します。Forループ書いて文字列を要素について反復し母音（a, e, i, o u）だけ印字してください（ヒント。``case``文を使って分岐毎に複数の値します。
 
-3. https://en.wikipedia.org/wiki/Fizz_buzz[Fizz buzz] is a kids game sometimes used to test basic programming knowledge. We count numbers from one upwards. If a number is divisible by 3 replace it with _fizz_, if it is divisible by 5 replace it with _buzz_, and if a number is divisible by 15 (both 3 and 5) replace it with _fizzbuzz_. First few rounds would look like this: 1, 2, fizz, 4, buzz, fizz, 7, ... +
-Create a program which will print first 30 rounds of Fizz buzz. (Hint: beware of the order of divisibility tests)
+3. https://en.wikipedia.org/wiki/Fizz_buzz[Fizz buzz]は子供の遊びで基本的なプログラミングの知識を試すためにも使われます。数は1から増える方向に数えます。数値が3の倍数なら _fizz_，5の倍数なら_buzz_で置き換え，もし数値が15（3と5両方）なら_fizzbuzz_で置き換えます。最初の数回は次のようになります。1, 2, fizz, 4, buzz, fizz, 7, ... +
+Fizz buzzの最初の30回を印字するプログラムを書いてください（ヒント。除算の順序のテストに注意してください。
 
-4. In the previous exercises you have converted inches to centimeters, and vice versa. Create a conversion table with multiple values. For example, the table might look like this: +
+4. 前の問題でインチをセンチメートルにまたはその逆に変換しました。複数の値の変換表を作ってください。表の例を示します。+
 ----
 in	| cm
 ----------------

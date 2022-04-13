@@ -1,15 +1,11 @@
-= 制御の流れ
+= 流れの制御
 
 
+これまでのプログラムは全ての行が必ず実行されていました。流れを制御する文を使うと，コードの一部がある真偽条件が成り立つ場合にのみ実行させるようにすることができます。
 
-So far in our programs every line of code was executed at some point.
-Control flow statements allow us to have parts of code which will be executed only if some boolean condition is satisfied.
+プログラムを道路に例えるならば，流れの制御は分かれ道であり，その一つを条件により選択します。例）もし（__if__）卵がある値段以下なら買う。もし（__if__）雨が降っていれば傘を持っていく，さもなくば（__else__）サングラスを持っていく。
 
-If we think of our program as a road we can think of control flow as various branches, and we pick our path depending on some condition.
-For example, we will buy eggs only _if_ their price is less than some value.
-Or, _if_ it is raining, we will bring an umbrella, otherwise (_else_) we will bring sunglasses.
-
-Written in https://en.wikipedia.org/wiki/Pseudocode[pseudocode], these two examples would look like this:
+https://en.wikipedia.org/wiki/Pseudocode[擬似コード]で書くと次のようになります。
 
 [source]
 ----
@@ -22,17 +18,17 @@ else:
   bring sunglasses
 ----
 
-Nim syntax is very similar, as you'll see below.
+Nimの文法は，以下に示すようによく似ています。
 
 
 
 
 
-== If statement
+== If文
 
-An if statement as shown above is the simplest way to branch our program.
+上に示したif文はプログラムの中で最も簡単な分岐です。
 
-The Nim syntax for writing if statement is:
+Nimの文法でif文は以下のように書きます。
 
 [source]
 ----
@@ -40,20 +36,20 @@ if <condition>:     <1>
   <indented block>  <2>
 ----
 
-<1> The `condition` must be of boolean type: either a boolean variable or a relational and/or logical expression.
-<2> All lines following the `if` line which are indented two spaces make the same block and will be executed only if the condition is `true`.
+<1> ``condition``は真偽型でなくてはなりません。真偽値または関係演算子，論理式やその組合せ。
+<2> ``if``の行に続く全ての行は二つの空白文字で字下げし，同じブロックとして条件が``true``のときにのみ実行されます。
 
-If statements can be nested, i.e. inside one if-block there can be another if statement.
+If文は入れ子にできます。すなわち，一つのifブロックの内側に別のif文を入れることができます。
 
 [source]
 .if.nim
 ----
 include::{source-dir}/if.nim[]
 ----
-<1> The first condition is true, the second is false -- inner `echo` is not executed.
-<2> Both conditions are true and both lines are printed.
-<3> The first condition is false -- all lines inside of its block will be skipped, nothing is printed.
-<4> Using the logical `and` inside of the `if` statement.
+<1> 最初の条件が真で二番目が偽なので中``echo``は実行されません。
+<2> 二つの条件が真で両方の行が印字されます。
+<3> 最初の条件が偽なので，このブロックの内側の全ての行は無視され，何も印字されません。
+<4> ``if``文の内側の論理``and``。
 
 [source, output]
 ----
@@ -66,7 +62,7 @@ not only that, b is *much* smaller than c
 
 === Else
 
-Else follows after an if-block and allows us to have a branch of code which will be executed when the condition in the if statement is not true.
+Ifブロックの後に続くelseを使うと，if文の条件が偽であるときに実行される分岐を作ることができます。
 
 [source]
 .else.nim
@@ -80,17 +76,16 @@ d is a large number
 e is a small number
 ----
 
-NOTE: If you only want to execute a block if the statement is `false`, you can simply negate the condition with the `not` operator.
+NOTE: If文が``false``のときだけブロックを実行するには，``not``演算子を使って条件を否定します。
 
 
 
 
 === Elif
 
-Elif is short for "else if", and enables us to chain multiple if statements together.
+Elifは"else if"の短縮形で，複数のif文をつなげることができます。
 
-The program tests every statement until it finds one which is true.
-After that, all further statements are ignored.
+プログラムは真となるまで文を試します。その後の全ての文は無視されます。
 
 [source]
 .elif.nim
@@ -104,17 +99,16 @@ f is larger than 1000
 g is smaller than 1000
 ----
 
-NOTE: In the case of `g`, even though `g` satisfies all three conditions, only the first branch is executed, automatically skipping all the other branches.
+NOTE: ``g``の場合``g``は三つの条件全てを満たしますが，最初の分岐だけが実行され，後の全ての分岐は実行が省略されます。
 
 
 
 
 == Case
 
-A case statement is another way to only choose one of multiple possible paths, similar to the if statement with multiple ``elif``s.
-A `case` statement, however, doesn't take multiple boolean conditions, but rather any value with distinct states and a path for each possible value.
+Case文は複数の可能性から一つを選択する別の方法で，複数の``elif``のあるif文に似ています。``case``文は複数の真偽条件を取らず，異なる値とそれに分岐を対応させます。
 
-Code written with in if-elif block looking like this:
+次のようなif-elifブロックで書かれたコードは
 
 [source]
 ----
@@ -127,7 +121,7 @@ elif x == 10:
 else:
   echo "unknown number"
 ----
-can be written with case statement like this:
+はcase文で次のように書けます。
 
 [source]
 ----
@@ -142,15 +136,14 @@ else:
   echo "unknown number"
 ----
 
-Unlike the if statement, case statement must cover _all_ possible cases.
-If one is not interested in some of those cases, `else: discard` can be used.
+If文とは異なり，case文はとりうる__全て__の場合を包含しなくてはなりません。該当しない場合があるときは``else: discard``を使うことができます。
 
 [source]
 .case.nim
 ----
 include::{source-dir}/case.nim[]
 ----
-<1> Even though we are interested in only three values of `h`, we must include this line to cover all other possible cases (all other characters). Without it, the code would not compile.
+<1> 必要のなのは``h``の三つの値だけですが，とりうる全ての場合（他の全ての文字）を含めるためにこの行が必要です。これがないとコンパイルが通りません。
 
 [source, output]
 ----
@@ -159,7 +152,7 @@ You've chosen y
 
 
 
-We can also use multiple values for each branch if the same action should happen for more than one value.
+複数の値に対して同じ動作をさせる場合は，それぞれの分岐に対して複数の値を割り当てることもできます。
 [source]
 .multipleCase.nim
 ----

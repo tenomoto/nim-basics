@@ -1,9 +1,9 @@
-= Containers
+= コンテナ
 
 
 
 Containers are data types which contain a collection of items and allow us to access those elements.
-Typically a container is also iterable, meaning that we can use them the same way we used strings in the <<Loops, loops chapter>>.
+Typically a container is also iterable, meaning that we can use them the same way we used strings in the <<_繰り返し, loops chapter>>.
 
 For example, a grocery list is a container of items we want to buy, and a list of primes is a container of numbers.
 Written in pseudocode:
@@ -163,7 +163,7 @@ e
 {nbsp}
 
 Slicing allows us to get a series of elements with one call.
-It uses the same syntax as ranges (introduced in the <<For loop, for loop section>>).
+It uses the same syntax as ranges (introduced in the <<Forループ, for loop section>>).
 
 If we use `start .. stop` syntax, both ends are included in the slice.
 Using `start ..< stop` syntax, the `stop` index is not included in the slice.
