@@ -1,19 +1,17 @@
-= Interacting with user input
+= ユーザ入力の取り扱い
 
 
 
-Using the stuff we've introduced so far (basic data types and containers, control flow, loops) allows us to make quite a few simple programs.
+これまでに学んだ項目（基本データ型とコンテナ，流れの制御，ループ）を使えば多数の簡単なプログラムが書けます。
 
-In this chapter we will learn how to make our programs more interactive.
-For that we need an option to read data from a file, or ask a user for an input.
-
+この章ではプログラムをより対話型にする方法を学びます。そのためには，ファイルからデータを読み込んだり，ユーザに入力を求めたりする手段が必要となります。
 
 
 
-== Reading from a file
 
-Let's say we have a text file called `people.txt` in the same directory as our Nim code.
-The contents of that file looks like this:
+== ファイルからの読み込み
+
+``people.txt``という名前のファイルがNimコードと同じディレクトリにあったといます。ファイルの中身は次のようなものです。
 
 [source]
 .people.txt
@@ -22,15 +20,15 @@ include::{source-dir}/people.txt[]
 
 ----
 
-We want to use the contents of that file in our program, as a list (sequence) of names.
+プログラム中でファイルの中身を名前のリスト（シーケンス）として使います。
 
 [source]
 .readFromFile.nim
 ----
 include::{source-dir}/readFromFile.nim[]
 ----
-<1> To read contents of a file, we use the `readFile` procedure, and we provide a path to the file from which to read (if the file is in the same directory as our Nim program, providing a filename is enough). The result is a multiline string.
-<2> To split a multiline string into a sequence of strings (each string contains all the contents of a single line) we use `splitLines` from the `strutils` module.
+<1> ファイルの中身を読むには``readFile``手続きを使い，読むファイルのパスを与えます（Nimのプログラムと同じディレクトリにある場合はファイル名だけで十分です）。読み込み結果は複数行の文字列になります。
+<2> 複数行の文字列を文字列のシーケンス（個々の文字列は一行の全ての内容を含みます）に分割するには，``strutils``モジュールの``splitLines``を使います。
 
 [source, output]
 ----
@@ -40,19 +38,17 @@ Carol C.
             <1>
 @["Alice A.", "Bob B.", "Carol C.", ""] <2>
 ----
-<1> There was a final new line (empty last line) in the original file, which is also present here.
-<2> Because of the final new line, our sequence is longer than we expected/wanted.
+<1> 元のファイルには最後の改行（最後が空行）があり，ここにも残っています。
+<2> 最後の改行のために，シーケンスは想定よりも長くなっています。
 
-To solve the problem of a final new line, we can use the `strip` procedure from `strutils` after we have read from a file.
-All this does is remove any so-called whitespace from the start and end of our string.
-Whitespace is simply any character that makes some space, new-lines, spaces, tabs, etc.
+最後の改行の問題を解決するためには，``strutils``の``strip``手続きをファイルを読んだ後に使います。これは，文字列の最初と最後の空白文字と呼ばれるものを除去します。空白文字は，スペースを作る，スペースや改行，タブなどが含まれます。
 
 [source]
 .readFromFile2.nim
 ----
 include::{source-dir}/readFromFile2.nim[]
 ----
-<1> Using `strip` provides the expected results.
+<1> ``strip``によって期待通りの結果が得られます。
 
 [source, output]
 ----
@@ -65,17 +61,16 @@ Carol C.
 
 
 
-== Reading user input
+== ユーザ入力の読み取り
 
-If we want to interact with a user, we must be able to ask them for an input, and then process it and use it.
-We need to read from https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)[standard input (stdin)] by passing `stdin` to the `readLine` procedure.
+ユーザと対話するには，入力を求めて処理し，利用する必要があります。link:https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)[標準入力（stdin）]から読むため``readLine``手続に``stdin``を渡します。
 
 [source]
 .interaction1.nim
 ----
 include::{source-dir}/interaction1.nim[]
 ----
-<1> The type of `name` is inferred to be a string.
+<1> ``name``の型は文字列と推定されます。
 
 
 [source, output]
@@ -83,7 +78,7 @@ include::{source-dir}/interaction1.nim[]
 Please enter your name:
         <1>
 ----
-<1> Waiting for user input. After we write our name and press `Enter`, the program will continue.
+<1> ユーザの入力を待ちます。名前を書いて``Enter``を押すとプログラムは再開します。
 
 [source, output]
 ----
@@ -92,23 +87,22 @@ Alice
 Hello Alice, nice to meet you!
 ----
 
-NOTE: If you are using an outdated version of VS Code, you cannot run this the usual way (using `Ctrl+Alt+N`) because output window doesn't allow user inputs -- you need to run these examples in the terminal. +
-With the newer versions of VS Code there is no such limitation.
+NOTE: 古い版のVS Codeだといつもの方法 （``Ctrl+Alt+N``）で動作しません。出力ウィンドウではユーザの入力ができないからです。ターミナルで例を実行する必要があります。 +
+VS Codeの新しい版ではこのような制限はありません。
 
 
 
 
-== Dealing with numbers
+== 数値の取り扱い
 
-Reading from a file or from a user input always gives a string as a result.
-If we would like to use numbers, we need to convert strings to numbers: we again use the `strutils` module and use `parseInt` to convert to integers or `parseFloat` to convert into a float.
+ファイルやユーザ入力を読んだ結果は常に文字列になります。数値として使うには，文字列を数値に変換す必要があります。ここでも``strutils``モジュールを使い，``parseInt``で整数または``parseFloat``で浮動小数点数にします。
 
 [source]
 .interaction2.nim
 ----
 include::{source-dir}/interaction2.nim[]
 ----
-<1> Convert a string to an integer. When written like this, we trust our user to give a valid integer. What would happen if a user inputs `'79` or `ninety-three`? Try it yourself.
+<1> 文字列を整数に変換。このように書いた場合ユーザは有効な整数を入力するものと想定しています。ユーザが``'79``または``ninety-three``と入力したらどうなるでしょうか。試してみてください。
 
 [source, output]
 ----
@@ -119,7 +113,7 @@ You are 84 years old.
 
 {nbsp}
 
-If we have file `numbers.txt` in the same directory as our Nim code, with the following content:
+Nimコードと同じディレクトリにファイル``numbers.txt``があり，次のような中身だとします。
 
 [source]
 .numbers.txt
@@ -127,18 +121,18 @@ If we have file `numbers.txt` in the same directory as our Nim code, with the fo
 include::{source-dir}/numbers.txt[]
 ----
 
-and we want to read that file and find the sum and average of the numbers provided, we can do something like this:
+このファイルを読んで，与えられた数値の合計と平均を求めるには，次のようにします。
 
 [source]
 .interaction3.nim
 ----
 include::{source-dir}/interaction3.nim[]
 ----
-<1> We import multiple modules. `strutils` gives us `strip` and `splitLines`, `sequtils` gives `map`, and `math` gives `sum`.
-<2> We strip the final new line, and split lines to create a sequence of strings.
-<3> `map` works by applying a procedure (in this case `parseFloat`) to each member of a container. In other words, we convert each string to a float, returning a new sequence of floats.
-<4> Using `sum` from `math` module to give us the sum of all elements in a sequence.
-<5> We need to convert the length of a sequence to float, because `sumNums` is a float.
+<1> 複数のモジュールをインポートします。``strutils``は``strip``と``splitLines``，``sequtils``は``map``，そして``math``は``sum``を提供します。
+<2> 最後の改行を取り除き，行を分割して文字列のシーケンスを作ります。
+<3> ``map``は手続（この場合は``parseFloat``）をコンテナのそれぞれのメンバに適用します。 それぞれの文字列を浮動小数点数にし，新しい浮動小数点数のシーケンスを返します。
+<4> ``math``モジュールの``sum``を使ってシーケンスの全ての要素の和を求めます。
+<5> ``sunNums``は浮動小数点数なので，シーケンスの長さを浮動小数点数に変換する必要があります。
 
 [source, output]
 ----
@@ -149,10 +143,10 @@ include::{source-dir}/interaction3.nim[]
 
 
 
-== Exercises
+== 練習問題
 
-1. Ask a user for their height and weight. Calculate their https://en.wikipedia.org/wiki/Body_mass_index[BMI]. Report them the BMI value and the category.
+1. ユーザに身長と体重を尋ねてください。link:https://en.wikipedia.org/wiki/Body_mass_index[BMI]インデックスを計算します。BMIの値と分類を報告ユーザにしてください。
 
-2. Repeat <<_練習問題_4, Collatz conjecture exercise>> so your program asks a user for a starting number. Print the resulting sequence.
+2. <<_練習問題_4, コラッツ予想の練習問題>>で，今度はユーザに最初の数を聞くプログラムを作ってください。結果のシーケンスを印字してください。
 
-3. Ask a user for a string they want to have reversed. Create a procedure which takes a string and returns a reversed version. For example, if user types `Nim-lang`, the procedure should return `gnal-miN`. (Hint: use indexing and `countdown`)
+3. 反転してほしい文字列を聞いてください。文字列を取り反転したものを返す手続きを作ってください。例えば，ユーザが``Nim-lang``と入れたら手続きが``gnal-miN``と返すようにします。（ヒント: 要素指定と``countdown``を使います。）

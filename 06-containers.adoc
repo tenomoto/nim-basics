@@ -2,11 +2,9 @@
 
 
 
-Containers are data types which contain a collection of items and allow us to access those elements.
-Typically a container is also iterable, meaning that we can use them the same way we used strings in the <<_繰り返し, loops chapter>>.
+コンテナは個々の要素の集まりを格納する型で，要素に対するアクセスができます。通常コンテナは反復可能で，<<_繰り返し, 繰り返しの章>>での文字列と同じように使うことができます。
 
-For example, a grocery list is a container of items we want to buy, and a list of primes is a container of numbers.
-Written in pseudocode:
+例えば，日用品のリストは買いたい品目のコンテナで，素数のリストは数のコンテナです。擬似コードでは次のようになります。
 [source]
 ----
 groceryList = [ham, eggs, bread, apples]
@@ -15,17 +13,13 @@ primes = [1, 2, 3, 5, 7]
 
 
 
-== Arrays
+== 配列
 
-An array is the simplest container type.
-Arrays are homogeneous, i.e. all elements in an array must have the same type.
-Arrays are also of a constant size, meaning that the amount of elements (or rather: the amount of _possible_ elements), must be known at compile-time.
-This means that we call arrays a "homogeneous container of a constant length".
+配列は最も単純なコンテナ型です。配列は一様，すなわち配列内の全ての要素が同じ型です。配列の長さは一定，つまり要素の数（正確には要素の最大の数）はコンパイル時に既知でなくてはなりません。したがって，配列を「長さが一定の一様コンテナ」と呼ぶことができます。
 
-The array type is declared using `array[<length>, <type>]`, where `length` is the total capacity of the array (number of elements it can fit), and `type` is a type of all its elements.
-The declaration can be omitted if both length and type can be inferred from the passed elements.
+配列の宣言は``array[<length>, <type>]``とします。ここで``length``は配列全体の大きさ（収容可能な要素の数）``type``は配列全ての要素の型です。宣言を省略できるのは，長さと型が共に渡された要素から推定できるときです。
 
-The elements of an array are enclosed inside of square brackets.
+配列の要素は角括弧で囲みます。
 
 [source]
 ----
@@ -35,12 +29,12 @@ var
   c = []  # error      <2>
   d: array[7, string]  <3>
 ----
-<1> If we provide the values, the length and type of array `b` are known at compile time. Although correct, there is no need to specifically declare it like array `a`.
-<2> Neither the length nor the type of the elements can be inferred from this kind of declaration -- this produces an error.
-<3> The correct way to declare an empty array (which will be filled later) is to give its length and type, without providing the values of its elements -- array `d` can contain seven strings.
+<1> 値を与えると，``b``の長さと型はコンパイル時に既知です。配列``a``のように具体的に宣言することは正しいのですが，その必要はありません。
+<2> この宣言では長さも型も推定できないので，エラーとなります。
+<3> 空の（後で要素を満たす）配列を宣言する正しい方法は長さと型を与え，要素の値を与えません。配列``d``は七つの文字列を可能できます。
 
 
-Since the length of an array has to be known at compile-time, this will not work:
+配列の長さはコンパイル時に既知でなければならないので，次は動作しません。
 
 [source]
 ----
@@ -50,18 +44,17 @@ let n = 5
 var a: array[m, char]
 var b: array[n, char] # error <1>
 ----
-<1> This produces an error because `n` is declared using `let` -- its value is not known at compile time. We can only use values declared with `const` as a `length` parameter for an array initialization.
+<1> これがエラーとなるのは``n``が``let``を使って宣言されているので，その値はコンパイル時には分からない空です。配列の初期化に``length``として使えるのは``const``だけです。
 
 
 
 
 
-== Sequences
+== シーケンス
 
-Sequences are containers similar to arrays, but their length doesn't have to be known at compile time, and it can change during runtime: we declare only the type of the contained elements with `seq[<type>]`.
-Sequences are also homogeneous, i.e. every element in a sequence has to be the same type.
+シーケンスは配列に似たコンテナですが，長さはコンパイル時に既知である必要はなく，実行中に変えることができます。含まれる要素の型だけを``seq[<type>]``で指定します。シーケンスは一様，すなわちシーケンスの全ての要素は同じ型でなくてはなりません。
 
-The elements of a sequence are enclosed between `@[` and `]`.
+シーケンスの要素は``@[``と``]``で囲みます。
 
 [source]
 ----
@@ -69,30 +62,29 @@ var
   e1: seq[int] = @[]   <1>
   f = @["abc", "def"]  <2>
 ----
-<1> The type of an empty sequence must be declared.
-<2> The type of a non-empty sequence can be inferred. In this case, it is a sequence containing strings.
+<1> 空のシーケンスの型は宣言しなくてはなりません。
+<2> 空でないシーケンスの型は推定できます。この場合は，文字列を格納するシーケンスになります。
 
-Another way to initialize an empty sequence is to call the `newSeq` procedure. We'll look more at procedure calls in the <<Procedures, next chapter>> but for now just know that this is also a possibility:
+空のシーケンスを初期化する別の方法は，``newSeq``手続きを呼ぶことです。手続き呼び出しは<<_手続き, 次章>>で学びますが，ここではこのような方法もあることを覚えておきましょう。
 
 [source]
 ----
 var
   e = newSeq[int]() <1>
 ----
-<1> Providing the type parameter inside of square brackets allows the procedure to know that it shall return a sequence of a certain type. +
-A frequent error is omission of the final `()`, which must be included.
+<1> 型パラメタを角括弧の間に与えて，特定の型のシーケンスが返されるようにします。 +
+よくあるミスは最後の``()``を忘れることです。これは必ず付けなくてはなりません。
 
 
-We can add new elements to a sequence with the `add` function, similar to how we did with strings.
-For this to work the sequence must be mutable (defined with `var`), and the element we're adding must be of the same type as the elements in the sequence.
+シーケンスに要素を付け加えるには``add``関数を使います。文字列に対して行ったことと似ています。追加を行うには，シーケンスは書き換え可能である（``var``で定義する）必要があり，追加される要素はシーケンスと同じ型でなくてはなりません。
 
 [source]
 .seq.nim
 ----
 include::{source-dir}/seq.nim[]
 ----
-<1> Adding a new element of the same type (char).
-<2> Adding another sequence containing the same type.
+<1> 同一の型（char）である新しい要素を追加。
+<2> 同一の型を含む別のシーケンスを追加。
 
 [source, output]
 ----
@@ -100,7 +92,7 @@ include::{source-dir}/seq.nim[]
 @['1', '2', '3', 'x', 'y', 'z']
 ----
 
-Trying to pass different types to the existing sequences will produce an error:
+既存のシーケンスに異なる型を渡そうとすると，エラーが発生します。
 
 [source]
 ----
@@ -109,11 +101,11 @@ var i = @[9, 8, 7]
 i.add(9.81) # error <1>
 g.add(i)    # error <2>
 ----
-<1> Trying to add a `float` to a sequence of `int`.
-<2> Trying to add a sequence of `int` to a sequence of `char`.
+<1> ``int``のシーケンスに``float``を渡そうとしています。
+<2> ``char``のシーケンスに``int``を渡そうとしています。
 
 
-Since sequences can vary in length we need a way to get their length, for this we can use the `len` function.
+シーケンスの長さは変化するので長さを知る方法が必要です。長さは``len``関数を使うと得られます。
 
 [source]
 ----
@@ -134,25 +126,23 @@ echo i.len
 
 
 
-== Indexing and slicing
+== 要素指定と切り出し
 
-Indexing allows us to get a specific element from a container by its index.
-Think of the index as a position inside of the container.
+要素指定により，インデックスによりコンテナから特定の要素を取り出すことができます。インデックスはコンテナ内の位置です。
 
-Nim, like many other programming languages, has zero-based indexing, meaning that the first element in a container has the index zero, the second element has the index one, etc.
+Nimは他の多くのプログラミング言語と同様に0始まりのインデックスづけを採用しています。つまり，コンテナの最初の要素のインデックスは0で，二番目の要素のインデックスは1などとなります。
 
-If we want to index "from the back", it is done by using the `^` prefix.
-The last element (first from the back) has index `^1`.
+末尾からのインデックスには `^` を前に置きます。最後の要素（末尾から一つ目）のインデックスは `^1` です。
 
-The syntax for indexing is `<container>[<index>]`.
+要素指定の構文は``<container>[<index>]``です。
 
 [source]
 .indexing.nim
 ----
 include::{source-dir}/indexing.nim[lines=1..4]
 ----
-<1> Zero-based indexing: the element at index 1 is `b`.
-<2> Getting the last element.
+<1> 0始まりの要素指定なでインデックス1の要素は``b``。
+<2> 最後の要素を取得。
 
 [source, output]
 ----
@@ -162,13 +152,11 @@ e
 
 {nbsp}
 
-Slicing allows us to get a series of elements with one call.
-It uses the same syntax as ranges (introduced in the <<Forループ, for loop section>>).
+切り出しでは一度に連続した要素が得られます。切り出しは（<<Forループ, forループの節>>で学んだ）範囲と同じ構文を使います。
 
-If we use `start .. stop` syntax, both ends are included in the slice.
-Using `start ..< stop` syntax, the `stop` index is not included in the slice.
+``start .. stop``という構文を使うと両端は切り出しに含まれます。これに対し，``start ..< stop``ではインデックス``stop``は切り出しには含まれません。
 
-The syntax for slicing is `<container>[<start> .. <stop>]`.
+切り出しの構文は``<container>[<start> .. <stop>]``です。
 
 [source]
 .indexing.nim
@@ -183,16 +171,16 @@ include::{source-dir}/indexing.nim[lines=6..8]
 ----
 
 
-Both indexing and slicing can be used to assign new values to the existing mutable containers and strings.
+要素指定と切り出しは，既存の書き換え可能なコンテナと文字列に値を代入するときに使えます。
 
 [source]
 .assign.nim
 ----
 include::{source-dir}/assign.nim[]
 ----
-<1> Array of length 5 has indexes from zero to four. We will assign a value to each element of the array.
-<2> Assigning (changing) the second element (index 1) of a sequence.
-<3> Changing characters of a string at indexes 8 and 9.
+<1> 長さ5の配列のインデックスは0から4までです。配列のそれぞれの要素に値を代入しています。
+<2> シーケンスの二番目の要素（インデックス1）に対して代入（書き換え）をしています。
+<3> 文字列のインデックス8と9の文字を書き換えています。
 
 
 [source, output]
@@ -205,20 +193,18 @@ Tom and Barry
 
 
 
-== Tuples
+== タプル
 
-Both of the containers we've seen so far have been homogeneous.
-Tuples, on the other hand, contain heterogeneous data, i.e. elements of a tuple can be of different types.
-Similarly to arrays, tuples have fixed-size.
+これまでに学んだ二つのコンテナはどちらも一様でした。これに対し，タプルは非一様データを格納します。つまり，タプルの要素は異なっていても構いません。配列同様にタプルは固定長です。
 
-The elements of a tuple are enclosed inside of parentheses.
+タプルの要素は丸括弧で囲みます。
 
 [source]
 .tuples.nim
 ----
 include::{source-dir}/tuples.nim[lines=1..3]
 ----
-<1> Tuples can contain fields of different types. In this case: `string`, `int`, and `char`.
+<1> タプルは異なる型のフィールドを含めることができます。この場合は``string``，``int``，そして``char``です。
 
 [source, output]
 ----
@@ -227,16 +213,15 @@ include::{source-dir}/tuples.nim[lines=1..3]
 
 
 
-We can also name each field in a tuple to distinguish them.
-This can be used for accessing the elements of the tuple, instead of indexing.
+タプルのフィールドには区別するための名前を付けることができます。名前を付けると，インデックスでなく名前でタプルの要素にアクセスできます。
 
 [source]
 .tuples.nim
 ----
 include::{source-dir}/tuples.nim[lines=5..10]
 ----
-<1> Changing the value of a field by using the field's index.
-<2> Changing the value of a field by using the field's name.
+<1> フィールドの値をフィールドのインデックスで変更。
+<2> フィールドの値をフィールドの名前で変更。
 
 [source, output]
 ----
@@ -247,20 +232,20 @@ include::{source-dir}/tuples.nim[lines=5..10]
 
 
 
-== Exercises
+== 練習問題
 
-1. Create an empty array which can contain ten integers.
-    * Fill that array with numbers 10, 20, ..., 100. (Hint: use loops)
-    * Print only the elements of that array that are on odd indices (values 20, 40, ...).
-    * Multiply elements on even indices by 5. Print the modified array.
+1. 10個の整数を格納できる空の配列を作ってください。
+    * 数値10, 20, ..., 100で配列を入れてください。（ヒント: ループを使います。)
+    * 奇数のインデックスである配列の要素だけを印字してください。（値は20, 40, ...）。
+    * 偶数インデックスの要素を5枚してください。変更された配列を印字してください。
 
-2. Re-do the <<_exercises_2, Collatz conjecture exercise>>, but this time instead of printing each step, add it to a sequence.
-    * Pick a starting number. Interesting choices, among others, are 9, 19, 25 and 27.
-    * Create a sequence whose only member is that starting number
-    * Using the same logic as before, keep adding elements to the sequence until you reach 1
-    * Print the length of the sequence, and the sequence itself
+2. <<_練習問題_2, コラッツ予想の練習問題>>に再度取り組みます。ただし，今回は各段階で印字するのではなく，シーケンスに追加します。
+    * 最初の数を選びます。面白い値には9, 19, 25や27などがあります。
+    * 最初の数だけを要素とするシーケンスを作ります。
+    * 前と同じロジックを使い，1にたどり着くまでシーケンスに要素を追加し続けます。
+    * シーケンスの長さとシーケンス自体を印字します。
 
-3. Find the number in a range from 2 to 100 which will produce the longest Collatz sequence.
-    * For each number in the given range calculate its Collatz sequence
-    * If the length of current sequence is longer than the previous record, save the current length and the starting number as a new record (you can use the tuple `(longestLength, startingNumber)` or two separate variables)
-    * Print the starting number which gives the longest sequence, and its length
+3. 2から100までの中で最も長いコラッツ数列を見つけてください。
+    * 範囲内のそれぞれの数に対してコラッツ数列を計算します。
+    * これまでの記録よりも現在のシーケンスが長ければ，現在の長さと最初の値を新しい記録として保存します。タプル``(longestLength, startingNumber)``または独立した二つの変数を使います。
+    * 最長のシーケンスを与える最初の数とシーケンスの長さを印字します。

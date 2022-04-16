@@ -1,34 +1,32 @@
-= Conclusion
+= まとめ
 
 
 
-It is time to conclude this tutorial.
-Hopefully this has been useful to you, and you managed to make your first steps in programming and/or the Nim programming language.
+このチュートリアルを締めるときが来ました。チュートリアルが読者に役に立つもので，読者がプログラミングやNimプログラミング言語の第一歩を踏み出せたということを期待しています。
 
-These have only been the basics and we've only scratched the surface, but this should be enough to enable you to make simple programs and solve some simple tasks or puzzles.
-Nim has a lot more to offer, and hopefully you will continue to explore its possibilities.
-
+扱った内容は基礎であり上部を撫でただけにすぎませんが，読者は簡単なプログラムを書き簡単な作業や問題を解くことに十分なものです。Nimはもっと多くを提供しているので，引き続きその可能性を探求してください。
 
 
 
 
-== Next steps
 
-If you want to continue learning from Nim tutorials:
+== 次の段階
+
+Nimをチュートリアルで学ぶには
 
 * https://nim-lang.org/docs/tut1.html[Official Nim tutorial]
 
 * https://nim-by-example.github.io/[Nim by example]
 
 
-If you want to solve some programming puzzles:
+プログラミングの問題を解くには
 
-* http://adventofcode.com/[Advent of Code]: Series of interesting puzzles released every December. Archive of old puzzles (from 2015 onwards) is available.
+* http://adventofcode.com/[Advent of Code]: 毎年12月に発表される面白い問題のシリーズ。古い問題（2015年以降）のアーカイブがあります。
 
-* https://projecteuler.net/[Project Euler]: Mostly mathematical tasks.
+* https://projecteuler.net/[Project Euler]: 主に数学の問題。
 
 
 
 {nbsp}
 
-Happy coding!
+コード書きを楽しみましょう!

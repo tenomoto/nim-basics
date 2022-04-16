@@ -83,39 +83,39 @@
 </li>
 <li><a href="#_コンテナ">コンテナ</a>
 <ul class="sectlevel1">
-<li><a href="#_arrays">Arrays</a></li>
-<li><a href="#_sequences">Sequences</a></li>
-<li><a href="#_indexing_and_slicing">Indexing and slicing</a></li>
-<li><a href="#_tuples">Tuples</a></li>
-<li><a href="#_exercises">Exercises</a></li>
+<li><a href="#_配列">配列</a></li>
+<li><a href="#_シーケンス">シーケンス</a></li>
+<li><a href="#_要素指定と切り出し">要素指定と切り出し</a></li>
+<li><a href="#_タプル">タプル</a></li>
+<li><a href="#_練習問題_3">練習問題</a></li>
 </ul>
 </li>
-<li><a href="#_procedures">Procedures</a>
+<li><a href="#_手続き">手続き</a>
 <ul class="sectlevel1">
-<li><a href="#_declaring_a_procedure">Declaring a procedure</a></li>
-<li><a href="#_calling_the_procedures">Calling the procedures</a></li>
-<li><a href="#_result_variable">Result variable</a></li>
-<li><a href="#_forward_declaration">Forward declaration</a></li>
-<li><a href="#_exercises_2">Exercises</a></li>
+<li><a href="#_手続きの宣言">手続きの宣言</a></li>
+<li><a href="#_手続きの呼び出し">手続きの呼び出し</a></li>
+<li><a href="#_result変数">Result変数</a></li>
+<li><a href="#_前方宣言">前方宣言</a></li>
+<li><a href="#_練習問題_4">練習問題</a></li>
 </ul>
 </li>
-<li><a href="#_modules">Modules</a>
+<li><a href="#_モジュール">モジュール</a>
 <ul class="sectlevel1">
-<li><a href="#_importing_a_module">Importing a module</a></li>
-<li><a href="#_creating_our_own">Creating our own</a></li>
+<li><a href="#_モジュールのインはポート">モジュールのインはポート</a></li>
+<li><a href="#_自前のモジュール">自前のモジュール</a></li>
 </ul>
 </li>
-<li><a href="#_interacting_with_user_input">Interacting with user input</a>
+<li><a href="#_ユーザ入力の取り扱い">ユーザ入力の取り扱い</a>
 <ul class="sectlevel1">
-<li><a href="#_reading_from_a_file">Reading from a file</a></li>
-<li><a href="#_reading_user_input">Reading user input</a></li>
-<li><a href="#_dealing_with_numbers">Dealing with numbers</a></li>
-<li><a href="#_exercises_3">Exercises</a></li>
+<li><a href="#_ファイルからの読み込み">ファイルからの読み込み</a></li>
+<li><a href="#_ユーザ入力の読み取り">ユーザ入力の読み取り</a></li>
+<li><a href="#_数値の取り扱い">数値の取り扱い</a></li>
+<li><a href="#_練習問題_5">練習問題</a></li>
 </ul>
 </li>
-<li><a href="#_conclusion">Conclusion</a>
+<li><a href="#_まとめ_2">まとめ</a>
 <ul class="sectlevel1">
-<li><a href="#_next_steps">Next steps</a></li>
+<li><a href="#_次の段階">次の段階</a></li>
 </ul>
 </li>
 </ul>
@@ -339,7 +339,7 @@
 </div>
 <div class="paragraph">
 <p>Nimでは変更できる値を変更できないものと区別しなければなりませんが，後ほど詳しく説明します。
-変数を宣言（変更可能な代入）するには<code>var</code>キーワードを使って，次のような文法により名前と型を書きます（値は後で与えられます）。</p>
+変数を宣言（変更可能な代入）するには<code>var</code>キーワードを使って，次のような構文により名前と型を書きます（値は後で与えられます）。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -826,7 +826,7 @@ im	ips</code></pre>
 <p><code>\\</code>を<code>\</code>の代わりに使うか，</p>
 </li>
 <li>
-<p>未加工（raw）文字列を使います。文法は<code>r"&#8230;&#8203;"</code>で （文字<code>r</code>を最初の引用符の前に置きます。）
+<p>未加工（raw）文字列を使います。構文は<code>r"&#8230;&#8203;"</code>で （文字<code>r</code>を最初の引用符の前に置きます。）
 ）エスケープ文字が存在せず特別な意味もなく，全てがそのまま印字されます。</p>
 </li>
 </ul>
@@ -1437,7 +1437,7 @@ g is smaller than 1000</code></pre>
 <h2 id="_forループ">Forループ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>forループの文法は</p>
+<p>forループの構文は</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1458,7 +1458,7 @@ g is smaller than 1000</code></pre>
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Nimで（整数型）数値の範囲にわたって反復したいときは，<code>iterable</code>の文法は <code>start .. finish</code>で<code>start</code>と<code>finish</code>は数値です。このように書くと，<code>start</code>と<code>finish</code>の間の数値を<code>finish</code>を含めて反復します。既定の反復可能な範囲では，<code>start</code>は<code>finish</code>よりも小さくなくてはなりません。</p>
+<p>Nimで（整数型）数値の範囲にわたって反復したいときは，<code>iterable</code>の構文は <code>start .. finish</code>で<code>start</code>と<code>finish</code>は数値です。このように書くと，<code>start</code>と<code>finish</code>の間の数値を<code>finish</code>を含めて反復します。既定の反復可能な範囲では，<code>start</code>は<code>finish</code>よりも小さくなくてはなりません。</p>
 </div>
 <div class="paragraph">
 <p>ある数値の手前まで（その数値を含まない）反復では<code>..&lt;</code>を使います。</p>
@@ -1594,7 +1594,7 @@ t</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>反復カウンタ（0始まり）も必要な場合は，<code>for &lt;counterVariable&gt;, &lt;loopVariable&gt; in &lt;iterator&gt;:</code>という文法が使えます。これは，ある反復可能オブジェクトについて反復し，同時に別の反復可能オブジェクトの同じ位置の値を使うときに便利です。</p>
+<p>反復カウンタ（0始まり）も必要な場合は，<code>for &lt;counterVariable&gt;, &lt;loopVariable&gt; in &lt;iterator&gt;:</code>という構文が使えます。これは，ある反復可能オブジェクトについて反復し，同時に別の反復可能オブジェクトの同じ位置の値を使うときに便利です。</p>
 </div>
 <div class="listingblock">
 <div class="title">for3.nim</div>
@@ -1720,8 +1720,8 @@ final value of a: 4</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="https://en.wikipedia.org/wiki/Collatz_conjecture">コラッツの問題</a>は有名な数学の問題で，ルールは単純です。まず数値を選びます。奇数なら3を加えて1を足します。もし偶数なら2で割ります。この手順を1になるまで続けます。例。5 &#8594; 奇数 &#8594; 3*5 + 1 = 16 &#8594; 偶数 &#8594; 16 / 2 = 8 &#8594; 偶数 &#8594; 4 &#8594; 2 &#8594; 1 &#8594; end!<br>
-整数を（書き換え可能な変数として）選びコラッツの問題の各ステップを印字するプログラムを書いてください。（ヒント。<code>div</code>を割り算に使います。）</p>
+<p><a href="https://en.wikipedia.org/wiki/Collatz_conjecture">コラッツ予想</a>は有名な数学の問題で，ルールは単純です。まず数値を選びます。奇数なら3を加えて1を足します。もし偶数なら2で割ります。この手順を1になるまで続けます。例。5 &#8594; 奇数 &#8594; 3*5 + 1 = 16 &#8594; 偶数 &#8594; 16 / 2 = 8 &#8594; 偶数 &#8594; 4 &#8594; 2 &#8594; 1 &#8594; 終了!<br>
+整数を（書き換え可能な変数として）選びコラッツ予想の各ステップを印字するプログラムを書いてください。（ヒント。<code>div</code>を割り算に使います。）</p>
 </li>
 <li>
 <p>書き換え不可の変数を作り，フルネームを格納します。Forループ書いて文字列を要素について反復し母音（a, e, i, o u）だけ印字してください（ヒント。<code>case</code>文を使って分岐毎に複数の値します。</p>
@@ -1731,7 +1731,7 @@ final value of a: 4</code></pre>
 Fizz buzzの最初の30回を印字するプログラムを書いてください（ヒント。除算の順序のテストに注意してください。</p>
 </li>
 <li>
-<p>前の問題でインチをセンチメートルにまたはその逆に変換しました。複数の値の変換表を作ってください。表の例を示します。+</p>
+<p>前の問題でインチをセンチメートルにまたはその逆に変換しました。複数の値の変換表を作ってください。表の例を示します。<br></p>
 </li>
 </ol>
 </div>
@@ -1754,12 +1754,10 @@ Fizz buzzの最初の30回を印字するプログラムを書いてください
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Containers are data types which contain a collection of items and allow us to access those elements.
-Typically a container is also iterable, meaning that we can use them the same way we used strings in the <a href="#_繰り返し">loops chapter</a>.</p>
+<p>コンテナは個々の要素の集まりを格納する型で，要素に対するアクセスができます。通常コンテナは反復可能で，<a href="#_繰り返し">繰り返しの章</a>での文字列と同じように使うことができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, a grocery list is a container of items we want to buy, and a list of primes is a container of numbers.
-Written in pseudocode:</p>
+<p>例えば，日用品のリストは買いたい品目のコンテナで，素数のリストは数のコンテナです。擬似コードでは次のようになります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1770,20 +1768,16 @@ Written in pseudocode:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_arrays">Arrays</h2>
+<h2 id="_配列">配列</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An array is the simplest container type.
-Arrays are homogeneous, i.e. all elements in an array must have the same type.
-Arrays are also of a constant size, meaning that the amount of elements (or rather: the amount of <em>possible</em> elements), must be known at compile-time.
-This means that we call arrays a "homogeneous container of a constant length".</p>
+<p>配列は最も単純なコンテナ型です。配列は一様，すなわち配列内の全ての要素が同じ型です。配列の長さは一定，つまり要素の数（正確には要素の最大の数）はコンパイル時に既知でなくてはなりません。したがって，配列を「長さが一定の一様コンテナ」と呼ぶことができます。</p>
 </div>
 <div class="paragraph">
-<p>The array type is declared using <code>array[&lt;length&gt;, &lt;type&gt;]</code>, where <code>length</code> is the total capacity of the array (number of elements it can fit), and <code>type</code> is a type of all its elements.
-The declaration can be omitted if both length and type can be inferred from the passed elements.</p>
+<p>配列の宣言は<code>array[&lt;length&gt;, &lt;type&gt;]</code>とします。ここで<code>length</code>は配列全体の大きさ（収容可能な要素の数）<code>type</code>は配列全ての要素の型です。宣言を省略できるのは，長さと型が共に渡された要素から推定できるときです。</p>
 </div>
 <div class="paragraph">
-<p>The elements of an array are enclosed inside of square brackets.</p>
+<p>配列の要素は角括弧で囲みます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1798,20 +1792,20 @@ The declaration can be omitted if both length and type can be inferred from the 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If we provide the values, the length and type of array <code>b</code> are known at compile time. Although correct, there is no need to specifically declare it like array <code>a</code>.</td>
+<td>値を与えると，<code>b</code>の長さと型はコンパイル時に既知です。配列<code>a</code>のように具体的に宣言することは正しいのですが，その必要はありません。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Neither the length nor the type of the elements can be inferred from this kind of declaration&#8201;&#8212;&#8201;this produces an error.</td>
+<td>この宣言では長さも型も推定できないので，エラーとなります。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The correct way to declare an empty array (which will be filled later) is to give its length and type, without providing the values of its elements&#8201;&#8212;&#8201;array <code>d</code> can contain seven strings.</td>
+<td>空の（後で要素を満たす）配列を宣言する正しい方法は長さと型を与え，要素の値を与えません。配列<code>d</code>は七つの文字列を可能できます。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Since the length of an array has to be known at compile-time, this will not work:</p>
+<p>配列の長さはコンパイル時に既知でなければならないので，次は動作しません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1826,21 +1820,20 @@ The declaration can be omitted if both length and type can be inferred from the 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This produces an error because <code>n</code> is declared using <code>let</code>&#8201;&#8212;&#8201;its value is not known at compile time. We can only use values declared with <code>const</code> as a <code>length</code> parameter for an array initialization.</td>
+<td>これがエラーとなるのは<code>n</code>が<code>let</code>を使って宣言されているので，その値はコンパイル時には分からない空です。配列の初期化に<code>length</code>として使えるのは<code>const</code>だけです。</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sequences">Sequences</h2>
+<h2 id="_シーケンス">シーケンス</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Sequences are containers similar to arrays, but their length doesn&#8217;t have to be known at compile time, and it can change during runtime: we declare only the type of the contained elements with <code>seq[&lt;type&gt;]</code>.
-Sequences are also homogeneous, i.e. every element in a sequence has to be the same type.</p>
+<p>シーケンスは配列に似たコンテナですが，長さはコンパイル時に既知である必要はなく，実行中に変えることができます。含まれる要素の型だけを<code>seq[&lt;type&gt;]</code>で指定します。シーケンスは一様，すなわちシーケンスの全ての要素は同じ型でなくてはなりません。</p>
 </div>
 <div class="paragraph">
-<p>The elements of a sequence are enclosed between <code>@[</code> and <code>]</code>.</p>
+<p>シーケンスの要素は<code>@[</code>と<code>]</code>で囲みます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1853,16 +1846,16 @@ Sequences are also homogeneous, i.e. every element in a sequence has to be the s
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The type of an empty sequence must be declared.</td>
+<td>空のシーケンスの型は宣言しなくてはなりません。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The type of a non-empty sequence can be inferred. In this case, it is a sequence containing strings.</td>
+<td>空でないシーケンスの型は推定できます。この場合は，文字列を格納するシーケンスになります。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Another way to initialize an empty sequence is to call the <code>newSeq</code> procedure. We&#8217;ll look more at procedure calls in the <a href="#_procedures">next chapter</a> but for now just know that this is also a possibility:</p>
+<p>空のシーケンスを初期化する別の方法は，<code>newSeq</code>手続きを呼ぶことです。手続き呼び出しは<a href="#_手続き">次章</a>で学びますが，ここではこのような方法もあることを覚えておきましょう。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1874,14 +1867,13 @@ Sequences are also homogeneous, i.e. every element in a sequence has to be the s
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Providing the type parameter inside of square brackets allows the procedure to know that it shall return a sequence of a certain type.<br>
-A frequent error is omission of the final <code>()</code>, which must be included.</td>
+<td>型パラメタを角括弧の間に与えて，特定の型のシーケンスが返されるようにします。<br>
+よくあるミスは最後の<code>()</code>を忘れることです。これは必ず付けなくてはなりません。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>We can add new elements to a sequence with the <code>add</code> function, similar to how we did with strings.
-For this to work the sequence must be mutable (defined with <code>var</code>), and the element we&#8217;re adding must be of the same type as the elements in the sequence.</p>
+<p>シーケンスに要素を付け加えるには<code>add</code>関数を使います。文字列に対して行ったことと似ています。追加を行うには，シーケンスは書き換え可能である（<code>var</code>で定義する）必要があり，追加される要素はシーケンスと同じ型でなくてはなりません。</p>
 </div>
 <div class="listingblock">
 <div class="title">seq.nim</div>
@@ -1901,11 +1893,11 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Adding a new element of the same type (char).</td>
+<td>同一の型（char）である新しい要素を追加。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Adding another sequence containing the same type.</td>
+<td>同一の型を含む別のシーケンスを追加。</td>
 </tr>
 </table>
 </div>
@@ -1916,7 +1908,7 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 </div>
 </div>
 <div class="paragraph">
-<p>Trying to pass different types to the existing sequences will produce an error:</p>
+<p>既存のシーケンスに異なる型を渡そうとすると，エラーが発生します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1930,16 +1922,16 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Trying to add a <code>float</code> to a sequence of <code>int</code>.</td>
+<td><code>int</code>のシーケンスに<code>float</code>を渡そうとしています。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Trying to add a sequence of <code>int</code> to a sequence of <code>char</code>.</td>
+<td><code>char</code>のシーケンスに<code>int</code>を渡そうとしています。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Since sequences can vary in length we need a way to get their length, for this we can use the <code>len</code> function.</p>
+<p>シーケンスの長さは変化するので長さを知る方法が必要です。長さは<code>len</code>関数を使うと得られます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1959,21 +1951,19 @@ For this to work the sequence must be mutable (defined with <code>var</code>), a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_indexing_and_slicing">Indexing and slicing</h2>
+<h2 id="_要素指定と切り出し">要素指定と切り出し</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Indexing allows us to get a specific element from a container by its index.
-Think of the index as a position inside of the container.</p>
+<p>要素指定により，インデックスによりコンテナから特定の要素を取り出すことができます。インデックスはコンテナ内の位置です。</p>
 </div>
 <div class="paragraph">
-<p>Nim, like many other programming languages, has zero-based indexing, meaning that the first element in a container has the index zero, the second element has the index one, etc.</p>
+<p>Nimは他の多くのプログラミング言語と同様に0始まりのインデックスづけを採用しています。つまり，コンテナの最初の要素のインデックスは0で，二番目の要素のインデックスは1などとなります。</p>
 </div>
 <div class="paragraph">
-<p>If we want to index "from the back", it is done by using the <code>^</code> prefix.
-The last element (first from the back) has index <code>^1</code>.</p>
+<p>末尾からのインデックスには <code>^</code> を前に置きます。最後の要素（末尾から一つ目）のインデックスは <code>^1</code> です。</p>
 </div>
 <div class="paragraph">
-<p>The syntax for indexing is <code>&lt;container&gt;[&lt;index&gt;]</code>.</p>
+<p>要素指定の構文は<code>&lt;container&gt;[&lt;index&gt;]</code>です。</p>
 </div>
 <div class="listingblock">
 <div class="title">indexing.nim</div>
@@ -1988,11 +1978,11 @@ The last element (first from the back) has index <code>^1</code>.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Zero-based indexing: the element at index 1 is <code>b</code>.</td>
+<td>0始まりの要素指定なでインデックス1の要素は<code>b</code>。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Getting the last element.</td>
+<td>最後の要素を取得。</td>
 </tr>
 </table>
 </div>
@@ -2006,15 +1996,13 @@ e</code></pre>
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Slicing allows us to get a series of elements with one call.
-It uses the same syntax as ranges (introduced in the <a href="#_forループ">for loop section</a>).</p>
+<p>切り出しでは一度に連続した要素が得られます。切り出しは（<a href="#_forループ">forループの節</a>で学んだ）範囲と同じ構文を使います。</p>
 </div>
 <div class="paragraph">
-<p>If we use <code>start .. stop</code> syntax, both ends are included in the slice.
-Using <code>start ..&lt; stop</code> syntax, the <code>stop</code> index is not included in the slice.</p>
+<p><code>start .. stop</code>という構文を使うと両端は切り出しに含まれます。これに対し，<code>start ..&lt; stop</code>ではインデックス<code>stop</code>は切り出しには含まれません。</p>
 </div>
 <div class="paragraph">
-<p>The syntax for slicing is <code>&lt;container&gt;[&lt;start&gt; .. &lt;stop&gt;]</code>.</p>
+<p>切り出しの構文は<code>&lt;container&gt;[&lt;start&gt; .. &lt;stop&gt;]</code>です。</p>
 </div>
 <div class="listingblock">
 <div class="title">indexing.nim</div>
@@ -2030,7 +2018,7 @@ Using <code>start ..&lt; stop</code> syntax, the <code>stop</code> index is not 
 </div>
 </div>
 <div class="paragraph">
-<p>Both indexing and slicing can be used to assign new values to the existing mutable containers and strings.</p>
+<p>要素指定と切り出しは，既存の書き換え可能なコンテナと文字列に値を代入するときに使えます。</p>
 </div>
 <div class="listingblock">
 <div class="title">assign.nim</div>
@@ -2055,15 +2043,15 @@ Using <code>start ..&lt; stop</code> syntax, the <code>stop</code> index is not 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Array of length 5 has indexes from zero to four. We will assign a value to each element of the array.</td>
+<td>長さ5の配列のインデックスは0から4までです。配列のそれぞれの要素に値を代入しています。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Assigning (changing) the second element (index 1) of a sequence.</td>
+<td>シーケンスの二番目の要素（インデックス1）に対して代入（書き換え）をしています。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Changing characters of a string at indexes 8 and 9.</td>
+<td>文字列のインデックス8と9の文字を書き換えています。</td>
 </tr>
 </table>
 </div>
@@ -2077,15 +2065,13 @@ Tom and Barry</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tuples">Tuples</h2>
+<h2 id="_タプル">タプル</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Both of the containers we&#8217;ve seen so far have been homogeneous.
-Tuples, on the other hand, contain heterogeneous data, i.e. elements of a tuple can be of different types.
-Similarly to arrays, tuples have fixed-size.</p>
+<p>これまでに学んだ二つのコンテナはどちらも一様でした。これに対し，タプルは非一様データを格納します。つまり，タプルの要素は異なっていても構いません。配列同様にタプルは固定長です。</p>
 </div>
 <div class="paragraph">
-<p>The elements of a tuple are enclosed inside of parentheses.</p>
+<p>タプルの要素は丸括弧で囲みます。</p>
 </div>
 <div class="listingblock">
 <div class="title">tuples.nim</div>
@@ -2098,7 +2084,7 @@ Similarly to arrays, tuples have fixed-size.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Tuples can contain fields of different types. In this case: <code>string</code>, <code>int</code>, and <code>char</code>.</td>
+<td>タプルは異なる型のフィールドを含めることができます。この場合は<code>string</code>，<code>int</code>，そして<code>char</code>です。</td>
 </tr>
 </table>
 </div>
@@ -2108,8 +2094,7 @@ Similarly to arrays, tuples have fixed-size.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We can also name each field in a tuple to distinguish them.
-This can be used for accessing the elements of the tuple, instead of indexing.</p>
+<p>タプルのフィールドには区別するための名前を付けることができます。名前を付けると，インデックスでなく名前でタプルの要素にアクセスできます。</p>
 </div>
 <div class="listingblock">
 <div class="title">tuples.nim</div>
@@ -2125,11 +2110,11 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Changing the value of a field by using the field&#8217;s index.</td>
+<td>フィールドの値をフィールドのインデックスで変更。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Changing the value of a field by using the field&#8217;s name.</td>
+<td>フィールドの値をフィールドの名前で変更。</td>
 </tr>
 </table>
 </div>
@@ -2141,57 +2126,57 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises">Exercises</h2>
+<h2 id="_練習問題_3">練習問題</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an empty array which can contain ten integers.</p>
+<p>10個の整数を格納できる空の配列を作ってください。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fill that array with numbers 10, 20, &#8230;&#8203;, 100. (Hint: use loops)</p>
+<p>数値10, 20, &#8230;&#8203;, 100で配列を入れてください。（ヒント: ループを使います。)</p>
 </li>
 <li>
-<p>Print only the elements of that array that are on odd indices (values 20, 40, &#8230;&#8203;).</p>
+<p>奇数のインデックスである配列の要素だけを印字してください。（値は20, 40, &#8230;&#8203;）。</p>
 </li>
 <li>
-<p>Multiply elements on even indices by 5. Print the modified array.</p>
+<p>偶数インデックスの要素を5枚してください。変更された配列を印字してください。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Re-do the <a href="#_exercises_2">Collatz conjecture exercise</a>, but this time instead of printing each step, add it to a sequence.</p>
+<p><a href="#_練習問題_2">コラッツ予想の練習問題</a>に再度取り組みます。ただし，今回は各段階で印字するのではなく，シーケンスに追加します。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pick a starting number. Interesting choices, among others, are 9, 19, 25 and 27.</p>
+<p>最初の数を選びます。面白い値には9, 19, 25や27などがあります。</p>
 </li>
 <li>
-<p>Create a sequence whose only member is that starting number</p>
+<p>最初の数だけを要素とするシーケンスを作ります。</p>
 </li>
 <li>
-<p>Using the same logic as before, keep adding elements to the sequence until you reach 1</p>
+<p>前と同じロジックを使い，1にたどり着くまでシーケンスに要素を追加し続けます。</p>
 </li>
 <li>
-<p>Print the length of the sequence, and the sequence itself</p>
+<p>シーケンスの長さとシーケンス自体を印字します。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Find the number in a range from 2 to 100 which will produce the longest Collatz sequence.</p>
+<p>2から100までの中で最も長いコラッツ数列を見つけてください。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For each number in the given range calculate its Collatz sequence</p>
+<p>範囲内のそれぞれの数に対してコラッツ数列を計算します。</p>
 </li>
 <li>
-<p>If the length of current sequence is longer than the previous record, save the current length and the starting number as a new record (you can use the tuple <code>(longestLength, startingNumber)</code> or two separate variables)</p>
+<p>これまでの記録よりも現在のシーケンスが長ければ，現在の長さと最初の値を新しい記録として保存します。タプル<code>(longestLength, startingNumber)</code>または独立した二つの変数を使います。</p>
 </li>
 <li>
-<p>Print the starting number which gives the longest sequence, and its length</p>
+<p>最長のシーケンスを与える最初の数とシーケンスの長さを印字します。</p>
 </li>
 </ul>
 </div>
@@ -2200,58 +2185,50 @@ This can be used for accessing the elements of the tuple, instead of indexing.</
 </div>
 </div>
 </div>
-<h1 id="_procedures" class="sect0">Procedures</h1>
+<h1 id="_手続き" class="sect0">手続き</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Procedures, or <em>functions</em> as they are called in some other programming languages, are parts of code that perform a specific task, packaged as a unit.
-The benefit of grouping code together like this is that we can <em>call</em> these procedures instead of writing all the code over again when we wish to use the procedure&#8217;s code.</p>
+<p>手続き，又は他のプログラミング言語で<em>関数</em>とも呼ばれており，特定の作業をするコードの一部を一つの単位にまとめたものです。このようにコードをまとめる利点は，手続きに書いてある内容のコードを再度書き直す代わりに手続きを<em>呼び出す</em>ことができることです。</p>
 </div>
 <div class="paragraph">
-<p>In some of the previous chapters we&#8217;ve looked at the Collatz conjecture in various different scenarios.
-By wrapping up the Collatz conjecture logic into a procedure we could have called the same code for all the exercises.</p>
+<p>前の複数の章では，コラッツ予想にいくつかの方法で取り組みました。コラッツ予想のロジックを手続きにまとめていれば，同じコードをコラッツ予想の全ての練習問題で使うことができたはずです。</p>
 </div>
 <div class="paragraph">
-<p>So far we have used many built-in procedures, such as <code>echo</code> for printing, <code>add</code> for adding elements to a sequence, <code>inc</code> to increase the value of an integer, <code>len</code> to get the length of a container, etc.
-Now we&#8217;ll see how to create and use our own procedures.</p>
+<p>これまで多くの組込手続きを使ってきました。例えば，<code>echo</code>で印字し，<code>add</code>で要素をシーケンスに追加し，<code>inc</code>で整数の値を増加させ<code>len</code>でコンテナの長さを取得するなど。ここでは，自前の手続きを作成し，利用する方法を理解します。</p>
 </div>
 <div class="paragraph">
-<p>Some of the advantages of using procedures are:</p>
+<p>手続きを使う利点はいくつかあります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Reducing code duplication</p>
+<p>コードの重複を防ぐ。</p>
 </li>
 <li>
-<p>Easier to read code as we can name pieces by what they do</p>
+<p>何をするかに基づいてコードの断片に名前を付けることでコードを読みやすくする。</p>
 </li>
 <li>
-<p>Decomposing a complex task into simpler steps</p>
+<p>複雑な作業を単純な段階に分解する。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>As mentioned in the beginning of this section, procedures are often called functions in other languages.
-This is actually a bit of a misnomer if we consider the mathematical definition of a function.
-Mathematical functions take a set of arguments (like <code>f(x, y)</code>, where <code>f</code> is a function, and <code>x</code> and <code>y</code> are its arguments) and <em>always</em> return the same answer for the same input.</p>
+<p>この節の最初に述べたように，手続きは他の言語で関数とも呼ばれています。この定義は数学での関数の定義を考えると，呼び誤りとも言えます。数学の関数は引数の組を取り（<code>f(x, y)</code>のように。ここで<code>f</code>は関数で<code>x</code>と<code>y</code>はその引数），<em>常に</em>同一の入力に対して同一の答えを返します。</p>
 </div>
 <div class="paragraph">
-<p>Programmatic procedures on the other hand don&#8217;t always return the same output for a given input.
-Sometimes they don&#8217;t return anything at all.
-This is because our computer programs can store state in the variables we mentioned earlier which procedures can read and change.
-In Nim, the word <code>func</code> is currently reserved to be used as the more mathematically correct kind of function, forcing no side-effects.</p>
+<p>プログラムの手続きは，常に同じ値を返すとは限りません。時には，返り値がないこともあります。その理由は，コンピュータプログラムは状態を前に述べた変数に保存でき，手続きはこれを読み書きできるからです。Nimでは<code>func</code>は現在数学的により正確な，副作用がないという制約が課された関数を表すために使うために確保されています。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_declaring_a_procedure">Declaring a procedure</h2>
+<h2 id="_手続きの宣言">手続きの宣言</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before we can use (call) our procedure, we need to create it and define what it does.</p>
+<p>自前の手続きを使う（呼び出す）前に，作成し何をするか定義する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>A procedure is declared by using the <code>proc</code> keyword and the procedure name, followed by the input parameters and their type inside of parentheses, and the last part is a colon and the type of the value returned from a procedure, like this:</p>
+<p>手続きは<code>proc</code>キーワードを用いて宣言され，手続き名と確固で囲まれた入力パラメタとのそれらの型が続き，最後の部分はコロンと手続きから返される値の型であり，次のようになります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2259,7 +2236,7 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 </div>
 </div>
 <div class="paragraph">
-<p>The body of a procedure is written in the indented block following the declaration appended with a <code>=</code> sign.</p>
+<p>手続き本体は，<code>==</code>記号が後ろについた宣言の後に続いて，インデントしたブロックに書きます。</p>
 </div>
 <div class="listingblock">
 <div class="title">callProcs.nim</div>
@@ -2277,11 +2254,11 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Declaring procedure called <code>findMax</code>, which has two parameters, <code>x</code> and <code>y</code>, and it returns an <code>int</code> type.</td>
+<td>この宣言の手続きの名前は<code>findMax</code>で，二つのパラメタ<code>x</code>と<code>y</code>をとり，<code>int</code>型を返します。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>To return a value from a procedure, we use the <code>return</code> keyword.</td>
+<td>値を手続きから返すために<code>return</code>キーワードを使います。</td>
 </tr>
 </table>
 </div>
@@ -2302,7 +2279,7 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>echoLanguageRating</code> procedure just echoes the given name, it doesn&#8217;t return anything, so the return type is not declared.</td>
+<td>この<code>echoLanguageRating</code>手続きは与えられた名前を単におうむ返しするだけで，何も返さないので返り値の型は定義されていません。</td>
 </tr>
 </table>
 </div>
@@ -2310,8 +2287,7 @@ In Nim, the word <code>func</code> is currently reserved to be used as the more 
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Normally we&#8217;re not allowed to change any of the parameters we are given.
-Doing something like this will throw an error:</p>
+<p>既定ではどのパラメタも変更することはゆるさていないので，次のように書くとエラーが発生します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2323,7 +2299,7 @@ Doing something like this will throw an error:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In order for this to work we need to allow Nim, and the programmer using our procedure, to change the argument by declaring it as a variable:</p>
+<p>動作するようにするには，Nimと手続きを使うユーザが引数を変更できるように，変数として宣言する必要があります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2341,7 +2317,7 @@ Doing something like this will throw an error:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice how <code>argument</code> is now declared as a <code>var int</code> and not just as an <code>int</code>.</td>
+<td>注目すべきは，今度は<code>argument</code>が <code>var int</code>として宣言されていて，単なる<code>int</code>ではないことです。</td>
 </tr>
 </table>
 </div>
@@ -2352,10 +2328,10 @@ Doing something like this will throw an error:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This of course means that the name we pass it must be declared as a variable as well, passing in something assigned with <code>const</code> or <code>let</code> will throw an error.</p>
+<p>当然手続に渡す名前も変数として宣言されていなくてはならず，<code>const</code>や<code>let</code>が付与されているものはエラーが生じます。</p>
 </div>
 <div class="paragraph">
-<p>While it is good practice to pass things as arguments it is also possible to use names declared outside the procedure, both variables and constants:</p>
+<p>引数で渡すことは良い慣行ですが，手続きの外で宣言された変数と定数を使うことも可能です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2373,11 +2349,11 @@ Doing something like this will throw an error:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Here we access the outside variable <code>x</code>.</td>
+<td>ここで外部変数<code>x</code>にアクセスします。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>We can also update its value, since it&#8217;s declared as a variable.</td>
+<td>変数として宣言されているので，値を更新することもできます。</td>
 </tr>
 </table>
 </div>
@@ -2390,11 +2366,10 @@ Doing something like this will throw an error:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_calling_the_procedures">Calling the procedures</h2>
+<h2 id="_手続きの呼び出し">手続きの呼び出し</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After we have declared a procedure, we can call it.
-The usual way of calling procedures/functions in many programming languages is to state its name and provide the arguments in the parentheses, like this:</p>
+<p>手続きを宣言したら，呼び出しができます。多くのプログラミング言語で手続きや関数を呼びだす一般的な方法は名前を示し，次のように引数を括弧で囲むことです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2402,10 +2377,10 @@ The usual way of calling procedures/functions in many programming languages is t
 </div>
 </div>
 <div class="paragraph">
-<p>The result from calling a procedure can be stored in a variable.</p>
+<p>手続き呼び出しの結果は変数に保存することができます。</p>
 </div>
 <div class="paragraph">
-<p>If we want to call our <code>findMax</code> procedure from the above example, and save the return value in a variable we can do that with:</p>
+<p><code>findMax</code>手続きを上の例から呼び返り値を変数に保存するには，次のようにします。</p>
 </div>
 <div class="listingblock">
 <div class="title">callProcs.nim</div>
@@ -2424,7 +2399,7 @@ The usual way of calling procedures/functions in many programming languages is t
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The result from the function <code>findMax</code> is here named <code>c</code>, and is called with the results of our first two calls (<code>findMax(987, 321)</code>).</td>
+<td>関数<code>findMax</code>の返り値はここで<code>c</code>と名付けられ，最初の二つの呼び出しの返り値を使って呼び出されます （<code>findMax(987, 321)</code>）。</td>
 </tr>
 </table>
 </div>
@@ -2439,10 +2414,10 @@ The usual way of calling procedures/functions in many programming languages is t
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Nim, unlike many other languages, also supports <a href="https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax">Uniform Function Call Syntax</a>, which allows many different ways of calling procedures.</p>
+<p>Nimは他の多くの言語とは異なり，<a href="https://en.wikipedia.org/wiki/Uniform_Function_Call_Syntax">統一関数呼び出し構文</a>が使えます。この構文を使うと，多様な呼び出し方が可能になります。</p>
 </div>
 <div class="paragraph">
-<p>This one is a call where the first argument is written before the function name, and the rest of the parameters are stated in parentheses:</p>
+<p>この構文では，最初の引数が関数名の前に書かれ，残りの引数を括弧の中に入れます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2450,8 +2425,7 @@ The usual way of calling procedures/functions in many programming languages is t
 </div>
 </div>
 <div class="paragraph">
-<p>We have used this syntax when we were adding elements to an existing sequence (<code>&lt;seq&gt;.add(&lt;element&gt;)</code>), as this makes it more readable and expresses our intent more clearly than writing <code>add(&lt;seq&gt;, &lt;element&gt;)</code>.
-We can also omit the parentheses around the arguments:</p>
+<p>既にこの構文を使って，要素を既存のシーケンスに追加しました（<code>&lt;seq&gt;.add(&lt;element&gt;)</code>）。この方が<code>add(&lt;seq&gt;, &lt;element&gt;)</code>と書くよりも読みやすく，意図とが明確になります。引数の括弧を省略することも可能です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2459,8 +2433,7 @@ We can also omit the parentheses around the arguments:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We&#8217;ve seen this style being used when we call the <code>echo</code> procedure, and when calling the <code>len</code> procedure without any arguments.
-These two can also be combined like this, but this syntax however is not seen very often:</p>
+<p>このようなスタイルが<code>echo</code>手続きを呼び出すときや，<code>len</code>手続きを引数なしに呼び出すときに使われていることを見てきました。これら二つを組み合わせることも可能ですが，見かけることはあまり多くありません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2471,7 +2444,7 @@ These two can also be combined like this, but this syntax however is not seen ve
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>The uniform call syntax allows for more readable chaining of multiple procedures:</p>
+<p>統一呼び出し構文を使うと，複数の手続きをつなげるときに読みやすい書き方ができます。</p>
 </div>
 <div class="listingblock">
 <div class="title">ufcs.nim</div>
@@ -2499,15 +2472,15 @@ These two can also be combined like this, but this syntax however is not seen ve
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If multiple parameters are of the same type, we can declare their type in this compact way.</td>
+<td>複数のパラメタの型が同じであれば，型の宣言を簡潔に書くことができます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>First we add <code>a</code> and <code>b</code>, then the result of that operation (2 + 3 = 5) is passed as the first parameter to the <code>multi</code> procedure, where it is multiplied by <code>c</code> (5 * 4 = 20).</td>
+<td>まず<code>a</code>に<code>b</code>を加え，演算の結果（2 + 3 = 5）<code>multi</code>手続きの最初の引数として与え，<code>c</code>を掛けます（5 * 4 = 20）。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>First we multiply <code>c</code> and <code>b</code>, then the result of that operation (4 * 3 = 12) is passed as the first parameter to the <code>plus</code> procedure, where it is added with <code>a</code> (12 + 2 = 14).</td>
+<td>まず<code>c</code>と<code>b</code>を掛けて，演算の結果（4 * 3 = 12）を<code>plus</code>手続きの最初の引数として与え<code>a</code>を足します（12 + 2 = 14）。</td>
 </tr>
 </table>
 </div>
@@ -2522,11 +2495,10 @@ true
 </div>
 </div>
 <div class="sect1">
-<h2 id="_result_variable">Result variable</h2>
+<h2 id="_result変数">Result変数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Nim, every procedure that returns a value has an implicitly declared and initialized (with a default value) <code>result</code> variable.
-The procedure will return the value of this <code>result</code> variable when it reaches the end of its indented block, even with no <code>return</code> statement.</p>
+<p>Nimでは，値を返す全ての手続きは<code>result</code>変数が暗黙に宣言され，（既定値で）初期化されます。手続きは，インデントされたブロックの末尾に到達したら<code>return</code>文がなくても<code>result</code>変数を返します。</p>
 </div>
 <div class="listingblock">
 <div class="title">result.nim</div>
@@ -2545,11 +2517,11 @@ The procedure will return the value of this <code>result</code> variable when it
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The return type is <code>int</code>. The <code>result</code> variable is initialized with the default value for <code>int</code>: <code>0</code>.</td>
+<td>返り値の型は<code>int</code>で<code>result</code>変数は<code>int</code>の既定値<code>0</code>で初期化されます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>When the end of the procedure is reached, the value of <code>result</code> is returned.</td>
+<td>手続きの末尾に到達すると，<code>result</code>の値が返されます。</td>
 </tr>
 </table>
 </div>
@@ -2559,8 +2531,7 @@ The procedure will return the value of this <code>result</code> variable when it
 </div>
 </div>
 <div class="paragraph">
-<p>Note that this procedure is here to demonstrate the <code>result</code> variable, and it is not 100% correct:
-if you would pass a sequence containing only negative numbers, this procedure would return <code>0</code> (which is <em>not</em> contained in the sequence).</p>
+<p>この手続きは<code>result</code>変数を説明するためのもので，100%正確ではありません。負の値だけを格納したシーケンスを渡すとこの手続きは（シーケンスに含まれ<em>ない</em>）<code>0</code>を返します。</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
@@ -2572,8 +2543,7 @@ if you would pass a sequence containing only negative numbers, this procedure wo
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Beware!
-In older Nim versions (before Nim 0.19.0), the default value of strings and sequences was <a href="https://en.wikipedia.org/wiki/Null_pointer"><code>nil</code></a>, and when we would use them as returning types, the <code>result</code> variable would need to be initialized as an empty string (<code>""</code>) or as an empty sequence (<code>@[]</code>).
+注意! Nimの古い版（Nim 0.19.0より前）文字列とシーケンスの既定値は<a href="https//en.wikipedia.org/wiki/Null_pointer"><code>nil</code></a>だったので，返り値の型として使うときには<code>result</code>変数はs（<code>""</code>）または空シーケンス（<code>@[]</code>）として初期化する必要がありました。
 </td>
 </tr>
 </table>
@@ -2596,8 +2566,8 @@ In older Nim versions (before Nim 0.19.0), the default value of strings and sequ
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>In Nim version 0.19.0 and newer, this line is not needed&#8201;&#8212;&#8201;sequences are automatically initialized as empty sequences.<br>
-In older Nim versions, sequences must be initialized, and without this line the compiler would throw an error. (Notice that <code>var</code> must <em>not</em> be used, as <code>result</code> is already implicitly declared.)</td>
+<td>Nimバージョン0.19.0以降ではこの行は不要。シーケンスは自動的に空シーケンスとして初期化されます。<br>
+Nimの古い版ではシーケンスを初期化しなければならず，この行がないとコンパイルエラー発生がしました（<code>result</code>は既に暗黙に宣言されているので，<code>var</code>は使ってはなりません。）</td>
 </tr>
 </table>
 </div>
@@ -2610,7 +2580,7 @@ In older Nim versions, sequences must be initialized, and without this line the 
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Inside of a procedure we can also call other procedures.</p>
+<p>手続きの中で別の手続きを呼び出すことができます。</p>
 </div>
 <div class="listingblock">
 <div class="title">filterOdds.nim</div>
@@ -2639,15 +2609,15 @@ In older Nim versions, sequences must be initialized, and without this line the 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Once again, this line is not needed in the newer versions of Nim.</td>
+<td>ここも新しいNimの版では不要。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Calling the previously declared procedure. Its return type is <code>bool</code> and can be used in the if-statement.</td>
+<td>以前に宣言された手続きの呼び出し。返り値の型は<code>bool</code>でif文で使うことが可能。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The third way of calling a procedure, as we saw above.</td>
+<td>上述の手続きを呼び出す第3の方法。</td>
 </tr>
 </table>
 </div>
@@ -2661,11 +2631,10 @@ In older Nim versions, sequences must be initialized, and without this line the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_forward_declaration">Forward declaration</h2>
+<h2 id="_前方宣言">前方宣言</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As mentioned in the very beginning of this section we can declare a procedure without a code block.
-The reason for this is that we have to declare procedures before we can call them, doing this will not work:</p>
+<p>この節の一番最初に述べたように，コードブロックを使わずに手続きを宣言することができます。その理由は手続きを呼び出す前に宣言する必要があるからです。次は動作しません。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2679,16 +2648,16 @@ The reason for this is that we have to declare procedures before we can call the
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This will throw an error as <code>plus</code> isn&#8217;t defined yet.</td>
+<td><code>plus</code>がまだ定義されていないので，エラーを生じます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Here we define <code>plus</code>, but since it&#8217;s after we use it Nim doesn&#8217;t know about it yet.</td>
+<td>ここで<code>plus</code>を定義していますが，使った後なのでNimはまだ知りません。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The way to get around this is what&#8217;s called a forward declaration:</p>
+<p>これを回避するには，前方宣言と呼ばれるものを使います。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2704,36 +2673,36 @@ The reason for this is that we have to declare procedures before we can call the
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Here we tell Nim that it should consider the <code>plus</code> procedure to exist with this definition.</td>
+<td>ここでNimに<code>plus</code>で続きが存在し，定義がこの通りであることを知らせます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Now we are free to use it in our code, this will work.</td>
+<td>手続きを自由に使うことができ，これは動作します。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>This is were <code>plus</code> is actually implemented, this must of course match our previous definition.</td>
+<td>ここで<code>plus</code>が実装されます。当然前にした定義と一致していなければなりません。</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_2">Exercises</h2>
+<h2 id="_練習問題_4">練習問題</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a procedure which will greet a person (print "Hello &lt;name&gt;") based on the provided name. Create a sequence of names. Greet each person using the created procedure.</p>
+<p>与えられた名前に対して挨拶する（"Hello &lt;name&gt;"を印字する）手続きを作ってください。名前のシーケンスを作り，この手続きを使ってそれぞれに人に挨拶してください。</p>
 </li>
 <li>
-<p>Create a procedure <code>findMax3</code> which will return the largest of three values.</p>
+<p>三つの値のうちで最大のものを返す手続き<code>findMax3</code>を作ってください。</p>
 </li>
 <li>
-<p>Points in 2D plane can be represented as <code>tuple[x, y: float]</code>. Write a procedure which will receive two points and return a new point which is a sum of those two points (add x&#8217;s and y&#8217;s separately).</p>
+<p>2次元平面の点は<code>tuple[x, y: float]</code>で表されます。二つの点を受け取り，二つの点の合計となる新しい点を返す手続きを書いてください（xとyは独立に足します）。</p>
 </li>
 <li>
-<p>Create two procedures <code>tick</code> and <code>tock</code> which echo out the words "tick" and "tock". Have a global variable to keep track of how many times they have run, and run one from the other until the counter reaches 20. The expected output is to get lines with "tick" and "tock" alternating 20 times. (Hint: use forward declarations.)</p>
+<p>"tick"と"tock"という単語を印字する<code>tick</code>と<code>tock</code>という手続きを作ってください。何回走ったか記録する大域変数を用意し，交互にカウンタが20に達するまで走らせてください。期待される出力は"tick"と"tock"が20回交互に繰り返されるというものです。（ヒント: 前方宣言を使います）。</p>
 </li>
 </ol>
 </div>
@@ -2744,53 +2713,51 @@ The reason for this is that we have to declare procedures before we can call the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can press Ctrl+C to stop execution of a program if you enter an infinite loop.
+無限ループに入ってしまったときは，Ctrl+Cを押してプログラムの実行を止めることができます。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Test all procedures by calling them with different parameters.</p>
+<p>全ての手続きを異なるパラメタで実行してください。</p>
 </div>
 </div>
 </div>
-<h1 id="_modules" class="sect0">Modules</h1>
+<h1 id="_モジュール" class="sect0">モジュール</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>So far we have used the functionality which is available by default every time we start a new Nim file.
-This can be extended with modules, which give more functionality for some specific topic.</p>
+<p>これまでは，新しいNimのファイルを作ると既定で使える機能を学んできました。モジュールを使うと既定から拡張して，特定の目的のために用いる機能を使いすることができます。</p>
 </div>
 <div class="paragraph">
-<p>Some of the most used Nim modules are:</p>
+<p>よく用いられるNimのモジュールを挙げます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>strutils</code>: additional functionality when dealing with strings</p>
+<p><code>strutils</code>: 文字列を扱う追加の機能</p>
 </li>
 <li>
-<p><code>sequtils</code>: additional functionality for sequences</p>
+<p><code>sequtils</code>: シーケンスに対する追加の機能</p>
 </li>
 <li>
-<p><code>math</code>: mathematical functions (logarithms, square roots, &#8230;&#8203;), trigonometry (sin, cos, &#8230;&#8203;)</p>
+<p><code>math</code>: 数学関数（対数，平方根 &#8230;&#8203;), 三角関数（sin, cos, &#8230;&#8203;）</p>
 </li>
 <li>
-<p><code>times</code>: measure and deal with time</p>
+<p><code>times</code>: 時間を測定したり扱ったりする。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>But there are many more, both in what&#8217;s called the <a href="https://nim-lang.org/docs/lib.html">standard library</a> and in the <a href="https://nimble.directory/">nimble package manager</a>.</p>
+<p><a href="https://nim-lang.org/docs/lib.html">標準ライブラリ</a>や<a href="https://nimble.directory/">nimbleパッケージマネージャ</a>にはもっとたくさんあります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_importing_a_module">Importing a module</h2>
+<h2 id="_モジュールのインはポート">モジュールのインはポート</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If we want to import a module and all of its functionality, all we have to do is put <code>import &lt;moduleName&gt;</code> in our file.
-This is commonly done on the top of the file so we can easily see what our code uses.</p>
+<p>モジュールをインポートして機能を全て使いたいときは<code>import &lt;moduleName&gt;</code>をファイルに書きます。通常ファイルの先頭に書いて，コードが何を使うか分かるようにします。</p>
 </div>
 <div class="listingblock">
 <div class="title">stringutils.nim</div>
@@ -2810,19 +2777,19 @@ This is commonly done on the top of the file so we can easily see what our code 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Importing <a href="https://nim-lang.org/docs/strutils.html">strutils</a>.</td>
+<td><a href="https://nim-lang.org/docs/strutils.html">strutils</a>をインポート。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Using <code>split</code> from <code>strutils</code> module. It splits the string in a sequence of words.</td>
+<td><code>strutils</code>モジュールから<code>split</code>を使い，文字列を単語の列に分割します。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>toUpperAscii</code> converts all ASCII letters to uppercase.</td>
+<td><code>toUpperAscii</code>は全てのASCII文字を大文字にします。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td><code>repeat</code> is also from <code>strutils</code> module, and it repeats either a character or a whole string the requested amount of times.</td>
+<td><code>repeat</code>も<code>strutils</code>モジュールからで。文字や文字列全体を指定回数繰り返します。</td>
 </tr>
 </table>
 </div>
@@ -2840,7 +2807,7 @@ MY STRING WITH WHITESPACE.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To the users coming from other programming languages (especially Python), the way that imports work in Nim might seem "wrong". If that&#8217;s the case, <a href="https://narimiran.github.io/2019/07/01/nim-import.html">this</a> is the recommended reading.
+他のプログラミング言語（特にPython）のユーザは，Nimkのインポートの動作は「誤り」に見えるかもしれません。その場合は<a href="https://narimiran.github.io/2019/07/01/nim-import.html">こちら</a>をご覧ください。
 </td>
 </tr>
 </table>
@@ -2867,19 +2834,19 @@ To the users coming from other programming languages (especially Python), the wa
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Importing <a href="https://nim-lang.org/docs/math.html">math</a>.</td>
+<td><a href="https://nim-lang.org/docs/math.html">math</a>をインポート。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Converting degrees to radians with <code>degToRad</code>.</td>
+<td>度をラジアンに変換するのに<code>degToRad</code>を使います。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>sin</code> takes radians. We round (also from <code>math</code> module) the result to at most 2 decimal places. (Otherwise the result would be: 0.4999999999999999)</td>
+<td><code>sin</code>にはラジアンを与えます。結果を小数第二位で丸めるために（これも<code>math</code>由来の）roundを使います（そうしないと結果は0.4999999999999999のようになるでしょう）。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Math module also has <code>^</code> operator for calculating powers of a number.</td>
+<td>Mathモジュールの <code>^</code> 演算子は数値の冪乗の計算につかいます。</td>
 </tr>
 </table>
 </div>
@@ -2893,11 +2860,10 @@ To the users coming from other programming languages (especially Python), the wa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_creating_our_own">Creating our own</h2>
+<h2 id="_自前のモジュール">自前のモジュール</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Often times we have so much code in a project that it makes sense to split it into pieces that each does a certain thing.
-If you create two files side by side in a folder, let&#8217;s call them <code>firstFile.nim</code> and <code>secondFile.nim</code>, you can import one from the other as a module:</p>
+<p>コードがプロジェクトのコードが多くなり，特定のことをする部品に分けることが適切であることがよくあります。二つのファイルを一つのフォルダの中に作り，<code>firstFile.nim</code>と<code>secondFile.nim</code>と名付けた場合，一方から他方は次のようにインポートできます。</p>
 </div>
 <div class="listingblock">
 <div class="title">firstFile.nim</div>
@@ -2913,11 +2879,11 @@ If you create two files side by side in a folder, let&#8217;s call them <code>fi
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice how the <code>plus</code> procedure now has an asterisk (<code>*</code>) after it&#8217;s name, this tells Nim that another file importing this one will be able to use this procedure.</td>
+<td><code>plus</code>手続きには，名前の後にアステリスク（<code>*</code>) がついていることに注目してください。これはNimにこのファイルをインポートした別のファイルはこの手続きを使えることを伝えています。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>By contrast this will not be visible when importing this file.</td>
+<td>対照的にこの手続きは，このファイルをインポートしたファイルからは見えません。</td>
 </tr>
 </table>
 </div>
@@ -2934,21 +2900,20 @@ If you create two files side by side in a folder, let&#8217;s call them <code>fi
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Here we import <code>firstFile.nim</code>. We don&#8217;t need to put the <code>.nim</code> extension on here.</td>
+<td>ここで<code>firstFile.nim</code>をインポートします。ここには<code>.nim</code>拡張子は不要です。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This will work fine and output <code>15</code> as it&#8217;s declared in <code>firstFile</code> and visible to us.</td>
+<td><code>firstFile</code>に定義されており見えるので，これは問題なく動作し<code>15</code>が印字されます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>However this will throw an error as the <code>minus</code> procedure is not visible since it doesn&#8217;t have an asterisk behind it&#8217;s name.</td>
+<td>しかしこれはエラーが発程します。<code>minus</code>手続きは名前の後ろにアステリスクが付いていないので見えないからです。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In case you have more than these two files, you might want to organize them in a subdirectory (or more than one subdirectory).
-With the following directory structure:</p>
+<p>これら二つのファイルよりももっとあるときは一つ（またはそれ以上の）サブディレクトリに整理することができます。ディレクトリ構造が次のようであるとします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2963,7 +2928,7 @@ With the following directory structure:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>if you wanted to import all other files in your <code>secondFile.nim</code> this is how you would do it:</p>
+<p><code>secondFile.nim</code>にその他の全てのファイルをインポートするには次のようにします。</p>
 </div>
 <div class="listingblock">
 <div class="title">secondFile.nim</div>
@@ -2975,24 +2940,22 @@ With the following directory structure:</p>
 </div>
 </div>
 </div>
-<h1 id="_interacting_with_user_input" class="sect0">Interacting with user input</h1>
+<h1 id="_ユーザ入力の取り扱い" class="sect0">ユーザ入力の取り扱い</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>Using the stuff we&#8217;ve introduced so far (basic data types and containers, control flow, loops) allows us to make quite a few simple programs.</p>
+<p>これまでに学んだ項目（基本データ型とコンテナ，流れの制御，ループ）を使えば多数の簡単なプログラムが書けます。</p>
 </div>
 <div class="paragraph">
-<p>In this chapter we will learn how to make our programs more interactive.
-For that we need an option to read data from a file, or ask a user for an input.</p>
+<p>この章ではプログラムをより対話型にする方法を学びます。そのためには，ファイルからデータを読み込んだり，ユーザに入力を求めたりする手段が必要となります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reading_from_a_file">Reading from a file</h2>
+<h2 id="_ファイルからの読み込み">ファイルからの読み込み</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s say we have a text file called <code>people.txt</code> in the same directory as our Nim code.
-The contents of that file looks like this:</p>
+<p><code>people.txt</code>という名前のファイルがNimコードと同じディレクトリにあったといます。ファイルの中身は次のようなものです。</p>
 </div>
 <div class="listingblock">
 <div class="title">people.txt</div>
@@ -3003,7 +2966,7 @@ The contents of that file looks like this:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We want to use the contents of that file in our program, as a list (sequence) of names.</p>
+<p>プログラム中でファイルの中身を名前のリスト（シーケンス）として使います。</p>
 </div>
 <div class="listingblock">
 <div class="title">readFromFile.nim</div>
@@ -3021,11 +2984,11 @@ The contents of that file looks like this:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>To read contents of a file, we use the <code>readFile</code> procedure, and we provide a path to the file from which to read (if the file is in the same directory as our Nim program, providing a filename is enough). The result is a multiline string.</td>
+<td>ファイルの中身を読むには<code>readFile</code>手続きを使い，読むファイルのパスを与えます（Nimのプログラムと同じディレクトリにある場合はファイル名だけで十分です）。読み込み結果は複数行の文字列になります。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>To split a multiline string into a sequence of strings (each string contains all the contents of a single line) we use <code>splitLines</code> from the <code>strutils</code> module.</td>
+<td>複数行の文字列を文字列のシーケンス（個々の文字列は一行の全ての内容を含みます）に分割するには，<code>strutils</code>モジュールの<code>splitLines</code>を使います。</td>
 </tr>
 </table>
 </div>
@@ -3042,18 +3005,16 @@ Carol C.
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>There was a final new line (empty last line) in the original file, which is also present here.</td>
+<td>元のファイルには最後の改行（最後が空行）があり，ここにも残っています。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Because of the final new line, our sequence is longer than we expected/wanted.</td>
+<td>最後の改行のために，シーケンスは想定よりも長くなっています。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>To solve the problem of a final new line, we can use the <code>strip</code> procedure from <code>strutils</code> after we have read from a file.
-All this does is remove any so-called whitespace from the start and end of our string.
-Whitespace is simply any character that makes some space, new-lines, spaces, tabs, etc.</p>
+<p>最後の改行の問題を解決するためには，<code>strutils</code>の<code>strip</code>手続きをファイルを読んだ後に使います。これは，文字列の最初と最後の空白文字と呼ばれるものを除去します。空白文字は，スペースを作る，スペースや改行，タブなどが含まれます。</p>
 </div>
 <div class="listingblock">
 <div class="title">readFromFile2.nim</div>
@@ -3071,7 +3032,7 @@ Whitespace is simply any character that makes some space, new-lines, spaces, tab
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Using <code>strip</code> provides the expected results.</td>
+<td><code>strip</code>によって期待通りの結果が得られます。</td>
 </tr>
 </table>
 </div>
@@ -3086,11 +3047,10 @@ Carol C.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reading_user_input">Reading user input</h2>
+<h2 id="_ユーザ入力の読み取り">ユーザ入力の読み取り</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If we want to interact with a user, we must be able to ask them for an input, and then process it and use it.
-We need to read from <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)">standard input (stdin)</a> by passing <code>stdin</code> to the <code>readLine</code> procedure.</p>
+<p>ユーザと対話するには，入力を求めて処理し，利用する必要があります。<a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)">標準入力（stdin）</a>から読むため<code>readLine</code>手続に<code>stdin</code>を渡します。</p>
 </div>
 <div class="listingblock">
 <div class="title">interaction1.nim</div>
@@ -3105,7 +3065,7 @@ We need to read from <a href="https://en.wikipedia.org/wiki/Standard_streams#Sta
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The type of <code>name</code> is inferred to be a string.</td>
+<td><code>name</code>の型は文字列と推定されます。</td>
 </tr>
 </table>
 </div>
@@ -3119,7 +3079,7 @@ We need to read from <a href="https://en.wikipedia.org/wiki/Standard_streams#Sta
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Waiting for user input. After we write our name and press <code>Enter</code>, the program will continue.</td>
+<td>ユーザの入力を待ちます。名前を書いて<code>Enter</code>を押すとプログラムは再開します。</td>
 </tr>
 </table>
 </div>
@@ -3137,8 +3097,8 @@ Hello Alice, nice to meet you!</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you are using an outdated version of VS Code, you cannot run this the usual way (using <code>Ctrl+Alt+N</code>) because output window doesn&#8217;t allow user inputs&#8201;&#8212;&#8201;you need to run these examples in the terminal.<br>
-With the newer versions of VS Code there is no such limitation.
+古い版のVS Codeだといつもの方法 （<code>Ctrl+Alt+N</code>）で動作しません。出力ウィンドウではユーザの入力ができないからです。ターミナルで例を実行する必要があります。<br>
+VS Codeの新しい版ではこのような制限はありません。
 </td>
 </tr>
 </table>
@@ -3146,11 +3106,10 @@ With the newer versions of VS Code there is no such limitation.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dealing_with_numbers">Dealing with numbers</h2>
+<h2 id="_数値の取り扱い">数値の取り扱い</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Reading from a file or from a user input always gives a string as a result.
-If we would like to use numbers, we need to convert strings to numbers: we again use the <code>strutils</code> module and use <code>parseInt</code> to convert to integers or <code>parseFloat</code> to convert into a float.</p>
+<p>ファイルやユーザ入力を読んだ結果は常に文字列になります。数値として使うには，文字列を数値に変換す必要があります。ここでも<code>strutils</code>モジュールを使い，<code>parseInt</code>で整数または<code>parseFloat</code>で浮動小数点数にします。</p>
 </div>
 <div class="listingblock">
 <div class="title">interaction2.nim</div>
@@ -3169,7 +3128,7 @@ If we would like to use numbers, we need to convert strings to numbers: we again
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Convert a string to an integer. When written like this, we trust our user to give a valid integer. What would happen if a user inputs <code>'79</code> or <code>ninety-three</code>? Try it yourself.</td>
+<td>文字列を整数に変換。このように書いた場合ユーザは有効な整数を入力するものと想定しています。ユーザが<code>'79</code>または<code>ninety-three</code>と入力したらどうなるでしょうか。試してみてください。</td>
 </tr>
 </table>
 </div>
@@ -3184,7 +3143,7 @@ You are 84 years old.</code></pre>
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>If we have file <code>numbers.txt</code> in the same directory as our Nim code, with the following content:</p>
+<p>Nimコードと同じディレクトリにファイル<code>numbers.txt</code>があり，次のような中身だとします。</p>
 </div>
 <div class="listingblock">
 <div class="title">numbers.txt</div>
@@ -3197,7 +3156,7 @@ You are 84 years old.</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>and we want to read that file and find the sum and average of the numbers provided, we can do something like this:</p>
+<p>このファイルを読んで，与えられた数値の合計と平均を求めるには，次のようにします。</p>
 </div>
 <div class="listingblock">
 <div class="title">interaction3.nim</div>
@@ -3220,23 +3179,23 @@ You are 84 years old.</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>We import multiple modules. <code>strutils</code> gives us <code>strip</code> and <code>splitLines</code>, <code>sequtils</code> gives <code>map</code>, and <code>math</code> gives <code>sum</code>.</td>
+<td>複数のモジュールをインポートします。<code>strutils</code>は<code>strip</code>と<code>splitLines</code>，<code>sequtils</code>は<code>map</code>，そして<code>math</code>は<code>sum</code>を提供します。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>We strip the final new line, and split lines to create a sequence of strings.</td>
+<td>最後の改行を取り除き，行を分割して文字列のシーケンスを作ります。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>map</code> works by applying a procedure (in this case <code>parseFloat</code>) to each member of a container. In other words, we convert each string to a float, returning a new sequence of floats.</td>
+<td><code>map</code>は手続（この場合は<code>parseFloat</code>）をコンテナのそれぞれのメンバに適用します。 それぞれの文字列を浮動小数点数にし，新しい浮動小数点数のシーケンスを返します。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Using <code>sum</code> from <code>math</code> module to give us the sum of all elements in a sequence.</td>
+<td><code>math</code>モジュールの<code>sum</code>を使ってシーケンスの全ての要素の和を求めます。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>We need to convert the length of a sequence to float, because <code>sumNums</code> is a float.</td>
+<td><code>sunNums</code>は浮動小数点数なので，シーケンスの長さを浮動小数点数に変換する必要があります。</td>
 </tr>
 </table>
 </div>
@@ -3249,41 +3208,39 @@ You are 84 years old.</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises_3">Exercises</h2>
+<h2 id="_練習問題_5">練習問題</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ask a user for their height and weight. Calculate their <a href="https://en.wikipedia.org/wiki/Body_mass_index">BMI</a>. Report them the BMI value and the category.</p>
+<p>ユーザに身長と体重を尋ねてください。<a href="https://en.wikipedia.org/wiki/Body_mass_index">BMI</a>インデックスを計算します。BMIの値と分類を報告ユーザにしてください。</p>
 </li>
 <li>
-<p>Repeat <a href="#_練習問題_4">Collatz conjecture exercise</a> so your program asks a user for a starting number. Print the resulting sequence.</p>
+<p><a href="#_練習問題_4">コラッツ予想の練習問題</a>で，今度はユーザに最初の数を聞くプログラムを作ってください。結果のシーケンスを印字してください。</p>
 </li>
 <li>
-<p>Ask a user for a string they want to have reversed. Create a procedure which takes a string and returns a reversed version. For example, if user types <code>Nim-lang</code>, the procedure should return <code>gnal-miN</code>. (Hint: use indexing and <code>countdown</code>)</p>
+<p>反転してほしい文字列を聞いてください。文字列を取り反転したものを返す手続きを作ってください。例えば，ユーザが<code>Nim-lang</code>と入れたら手続きが<code>gnal-miN</code>と返すようにします。（ヒント: 要素指定と<code>countdown</code>を使います。）</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<h1 id="_conclusion" class="sect0">Conclusion</h1>
+<h1 id="_まとめ_2" class="sect0">まとめ</h1>
 <div class="openblock partintro">
 <div class="content">
 <div class="paragraph">
-<p>It is time to conclude this tutorial.
-Hopefully this has been useful to you, and you managed to make your first steps in programming and/or the Nim programming language.</p>
+<p>このチュートリアルを締めるときが来ました。チュートリアルが読者に役に立つもので，読者がプログラミングやNimプログラミング言語の第一歩を踏み出せたということを期待しています。</p>
 </div>
 <div class="paragraph">
-<p>These have only been the basics and we&#8217;ve only scratched the surface, but this should be enough to enable you to make simple programs and solve some simple tasks or puzzles.
-Nim has a lot more to offer, and hopefully you will continue to explore its possibilities.</p>
+<p>扱った内容は基礎であり上部を撫でただけにすぎませんが，読者は簡単なプログラムを書き簡単な作業や問題を解くことに十分なものです。Nimはもっと多くを提供しているので，引き続きその可能性を探求してください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next_steps">Next steps</h2>
+<h2 id="_次の段階">次の段階</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to continue learning from Nim tutorials:</p>
+<p>Nimをチュートリアルで学ぶには</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3296,15 +3253,15 @@ Nim has a lot more to offer, and hopefully you will continue to explore its poss
 </ul>
 </div>
 <div class="paragraph">
-<p>If you want to solve some programming puzzles:</p>
+<p>プログラミングの問題を解くには</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://adventofcode.com/">Advent of Code</a>: Series of interesting puzzles released every December. Archive of old puzzles (from 2015 onwards) is available.</p>
+<p><a href="http://adventofcode.com/">Advent of Code</a>: 毎年12月に発表される面白い問題のシリーズ。古い問題（2015年以降）のアーカイブがあります。</p>
 </li>
 <li>
-<p><a href="https://projecteuler.net/">Project Euler</a>: Mostly mathematical tasks.</p>
+<p><a href="https://projecteuler.net/">Project Euler</a>: 主に数学の問題。</p>
 </li>
 </ul>
 </div>
@@ -3312,7 +3269,7 @@ Nim has a lot more to offer, and hopefully you will continue to explore its poss
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>Happy coding!</p>
+<p>コード書きを楽しみましょう!</p>
 </div>
 <div class="paragraph">
 <p>&#160;</p>
